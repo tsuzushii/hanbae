@@ -1,0 +1,37 @@
+<!-- global-navigation.component.html -->
+<div class="treeviewScrollContainer">
+    <div class="treeviewScrollContainer-inner"></div>
+    <div class="GN_GlobalNavigationMenu" 
+         id="navigation-scroll-content">
+        <ul>
+            @for (item of navigationItems; track item) {
+                <!-- Step -->
+                @if (isStep(item)) {
+                    <li [class]="getStepClasses(item)"
+                        (click)="onItemClick(item)">
+                        <a>{{item.text}}</a>
+                    </li>
+                }
+                
+                <!-- Category -->
+                @if (isCategory(item)) {
+                    <li [class]="getCategoryClasses(item)"
+                        (click)="onItemClick(item)">
+                        <a>{{item.text}}</a>
+                    </li>
+                }
+                <!-- Header -->
+                @if (isHeader(item)) {
+                    <li class="GN_Header">
+                        <a>{{item.text}}</a>
+                    </li>
+                }
+                <!-- Separator -->
+                @if (isSeparator(item)) {
+                    <li class="GN_Separator">
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>

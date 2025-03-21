@@ -1,0 +1,20 @@
+﻿
+#Content, #mydiv, #ContentCoefficent, #ContentsSection, #divPrint
+{
+    width: 100%;
+    height: auto !important;
+    overflow:visible;
+}
+
+#overflowDiv
+{
+    display:inline;
+    height: auto !important;
+    overflow:visible !important;    
+}
+
+.noprint
+{
+    display: none;
+}
+.pagebreak {page-break-after:always;}

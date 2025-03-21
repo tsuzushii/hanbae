@@ -1,0 +1,7 @@
+[
+  
+  
+  { "key": "applicativeApiUrl", "value": "https://{ApiHostname}d.aginsurance.intranet/{ApiVirtualDirectory}/api/v1"},
+  { "key": "maintenanceApiUrl", "value": "https://iservicesq.aginsurance.be/Services/maintenancepage/api/v1/maintenance/GetMaintenanceStatus?Environment=D000&Channel=INTRANET&Application=VIHCHealthCareParticulier2" }
+]
+  

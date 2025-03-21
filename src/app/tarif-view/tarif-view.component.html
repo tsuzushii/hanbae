@@ -1,0 +1,150 @@
+<form [formGroup]="TarifForm">
+  <div class="TabbedSection">
+    <div class="TabTitleDiv">
+      <span class="TabTitleSpan">
+        <span id="LabelPageSousTitle">{{'LabelPageSubTitle.Text' | translate}}</span>
+      </span>
+    </div>
+    <div class="TabContent">
+      <div id="AddInsuredDiv" class="AddDiv">
+
+        <input type="submit" name="ButtonNewInsured" value="{{'ButtonNewInsured.Text' | translate}}"
+          id="ButtonNewInsured" class="button" style="width:125px;" (click)="buttonNewInsuredClick()">
+        <div style="display: none">
+          <input type="submit" name="ButtonHide" value="Hide" id="ButtonHide" class="button cboxElement"
+            style="width:125px;">
+          <input type="submit" name="ButtonRetrunPortal" value="Hide" id="ButtonRetrunPortal" class="button"
+            style="width:125px;">
+        </div>
+        <span id="UpdatePanelSavePrint"></span>
+
+      </div>
+
+      <table id="InsuredTable" width="100%" class="generalTableStyle notHoverable" cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th style="width: 15%">
+              {{'IvnHeaderFirstName' | translate}}
+            </th>
+            <th style="width: 10%">
+              {{'IvnHeaderSex' | translate}}
+            </th>
+            <th style="width: 15%">
+              {{'IvnHeaderDOB' | translate}}
+            </th>
+            <th style="width: 10%">
+              {{'IvnHeaderPostalCode' | translate}}
+            </th>
+            <th style="width: 10%">
+              {{'IvnHeaderMutuelle' | translate}}
+            </th>
+            <th style="width: 10%">
+              {{'IvnHeaderCoverage' | translate}}
+            </th>
+            <th style="width: 15%">
+              {{'IvnHeaderRelation' | translate}}
+            </th>
+            <th style="width: 10%">
+              {{'IvnHeaderBankDomiciliation' | translate}}
+            </th>
+            <th style="width: 10%">
+
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="itembody">
+            <td style="text-align: center">
+              <input type="hidden" name="txtAssureNumber" id="txtAssureNumber" value="0">
+              <input type="hidden" name="hfNewAssure" id="hfNewAssure" value="1">
+              <ag-smart-textbox formControlName="firstName" id="TextBoxFirstName"  cssClass="inputFields mandatory" [maxLength]="20"
+              ValidCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
+            </ag-smart-textbox>
+            </td>
+            <td style="text-align: center">
+              <select name="ddlSex" id="ddlSex" class="inputFields mandatory">
+                <option selected="selected" value="0"></option>
+                <option value="1">{{'LabelMale.Text' | translate }}</option>
+                <option value="2">{{'LabelFemale.Text' | translate}}</option>
+
+              </select>
+            </td>
+            <td style="text-align: center">
+              <!-- TODO(Anas) trasnform date3 custom control -->
+              <div id="UCDateOfBirth_DatePanel">
+
+                <span class="DC_DateControl" id="UCDateOfBirth_datecontrol"><input
+                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$DayBox" type="text" maxlength="2"
+                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_DayBox"
+                    class="inputFields mandatory DC_DateBox DC_DayBox" style="width:22px;vertical-align:middle;"><span
+                    style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span><input
+                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$MonthBox" type="text" maxlength="2"
+                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_MonthBox"
+                    class="inputFields mandatory DC_DateBox DC_MonthBox" style="width:22px;vertical-align:middle;"><span
+                    style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span><input
+                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$YearBox" type="text" maxlength="4"
+                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_YearBox"
+                    class="inputFields mandatory DC_DateBox DC_YearBox"
+                    style="width:44px;vertical-align:middle;"></span>
+
+              </div>
+
+            </td>
+            <td style="text-align: center">
+              <ag-smart-textbox formControlName="TextBoxPostalCode" [textMode]="'SingleLine'" width="50px" cssClass="inputFields mandatory" id="TextBoxPostalCode" [maxLength]="4"
+              validCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
+            </ag-smart-textbox>
+            </td>
+            <td style="text-align: center">
+              <ag-codotheque-dropdown-list formControlName="mutuelle" [mockData]="mutuelleLabels" [displayField]="2"
+                cssClass="inputFields mandatory" attribute="AT3AHC1CMUT" [sortDirection]="1" [sortField]="1"
+                [showValues]="'01'" [labelLength]="3" id="ddlMutuelle">
+              </ag-codotheque-dropdown-list>
+
+            </td>
+            <td style="text-align: center">
+              <ag-codotheque-dropdown-list formControlName="cover" [mockData]="coverLabels" [displayField]="2" cssClass="inputFields mandatory"
+                attribute="IWHCCOUV" [sortDirection]="1" [sortField]="1" [showValues]="'1,2'" [labelLength]="3"
+                id="ddlCover">
+              </ag-codotheque-dropdown-list>
+            </td>
+            <td style="text-align: center">
+              <select name="ddlRelation" id="ddlRelation" class="inputFields mandatory" style="display: none"
+                disabled="">
+                <option selected="selected" value="0"></option>
+                <option value="1">{{'LabelCcb' | translate}}</option>
+                <option value="2">{{'LabelFis' | translate}}</option>
+                <option value="3">{{'LabelEnf' | translate}}</option>
+                <option value="4">{{'LabelPer' | translate}}</option>
+                <option value="5">{{'LabelGrdPae' | translate}}</option>
+                <option value="6">{{'LabelFrr' | translate}}</option>
+                <option value="7">{{'LabelAue' | translate}}</option>
+
+              </select>
+            </td>
+            <td style="text-align: center">
+              <select name="ddlDomiciliation" id="ddlDomiciliation" class="inputFields mandatory">
+                <option selected="selected" value="0"></option>
+                <option value="1">{{'LabelYes.Text' | translate}}</option>
+                <option value="2">{{'LabelNo.Text' | translate}}</option>                
+                <!-- <option value="1"> Ja </option>
+                <option value="2">Nee</option> -->
+              </select>
+
+            </td>
+            <td class="rightColumn">
+              <a id="ButtonDelete" (click)="deleteInsured()">{{'ButtonDelete' | translate}}</a>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+ 
+
+
+</form>

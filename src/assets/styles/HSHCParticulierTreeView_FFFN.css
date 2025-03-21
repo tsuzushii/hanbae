@@ -1,0 +1,201 @@
+﻿/************************************************************************/
+/** Styles for the TreeView (GlobalNavigation)                         **/
+/************************************************************************/
+
+#SideNavigation
+{
+    float:left;
+    width:204px;
+    /*margin:0px 0px 0px 20px;*/
+    padding:0;
+	height: 63px;
+}
+
+div.treeviewTopborder,
+    div.treeviewBottomborder
+{
+    width:180px;
+    margin:0px 0px 0px 20px;
+}
+    
+div.treeviewTopborder
+{
+    border-top:solid 1px #9C0;
+    border-left:solid 1px #9C0;
+    border-right:solid 1px #9C0;
+    height:32px;
+}
+div.treeviewBottomborder
+{
+    border-bottom: solid 1px #9C0;
+    border-left:solid 1px #9C0;
+    border-right:solid 1px #9C0;
+    clear:both;
+    height:5px;
+    /*display:inline;*/
+}
+
+a.treeviewScrollLink
+{
+    height:27px;
+    width:33px;
+    cursor:pointer;
+    float:right;
+    margin:2px;
+    display:none;
+}
+
+#SideNavigation div.treeviewScrollContainer
+{
+    width:202px;
+    clear:both;
+        
+    overflow:hidden;
+    position:relative;
+}
+
+#SideNavigation .GN_GlobalNavigationMenu  
+{
+    float:left;
+    width:180px;
+    margin:0px 0px 0px 20px;
+    padding:0;
+    display:inline;
+    
+    border-left:solid 1px #9C0;
+    border-right:solid 1px #9C0;    
+    
+    /*
+    font: normal 13px normal "Trebuchet MS";    -- FIX IE9: x76544 (15/10/2012)
+    */
+    font: normal 13px Arial;
+    /*height:100%;*/
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul
+{
+    float:left;
+    position:relative;
+    width:180px;
+    margin:0 0 0 -7px;
+    /*left:-7px;*/
+    padding:0px;
+    /*padding-top:6px;*/
+    list-style-type:none;
+    display:inline;
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li
+{
+    float:left;
+    width:180px;
+    /*margin-top:10px;*/
+    /*margin:0;
+    padding:0 0 0 20px;
+    background-repeat:no-repeat;          
+    background-position:0px 3px;  
+    outline-style:none;
+    line-height:17px;
+    display:inline;*/
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Separator
+{
+    height:20px;
+}
+#SideNavigation .GN_GlobalNavigationMenu ul li a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li a:hover
+{
+    float:left;
+    width:160px;
+    text-decoration:none;
+    padding-left:20px;
+    color:#000;
+    background-repeat:no-repeat;
+    /* background-position:0px 3px; -- FIX IE9: x76544 (15/10/2012)*/
+    background-position: left center;
+    outline-style:none;
+    overflow:hidden;
+    
+/*    color:#000;
+    text-decoration:none;
+    cursor:default;*/
+}
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Clickable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Clickable a:hover
+{ cursor:pointer; }
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L1 a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L2 a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed a
+{
+    color:#b8babd;
+    cursor:default;
+}
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1 a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2 a
+{
+    background-image:url('../WebResources/HRHCGN_Step_Level1IncompleteAvailable_Bullet_AGI_Green_v14_FFFN.gif');            
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2
+{
+    width:180px;
+    /*padding-left:28px;*/
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2 a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2 a:hover
+{
+    width:140px;
+    margin-left:20px;
+    display:inline;
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_NotAvailable_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_NotAvailable_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_NotAvailable_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_NotAvailable_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_Selected a    
+{
+    font-weight:bold;
+}
+
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L1 a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L2 a
+{
+    background-image:url("../WebResources/HRHCGN_Step_Level1IncompleteUnavailable_Bullet_v14_FFFN.gif");
+}
+    
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_Selected a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_Selected a
+{ 
+    background-image:url("../WebResources/HRHCGN_Step_Level1CompletedAvailable_Bullet_AGI_Green_v14_FFFN.gif"); 
+}
+#SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L1.GN_Step_L1_Completed a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_NotAvailable a,
+    #SideNavigation .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed_NotAvailable_Selected a,
+    #SideNavigation.disabled .GN_GlobalNavigationMenu ul li.GN_Step_L2.GN_Step_L2_Completed a
+{ 
+    background-image:url("../WebResources/HRHCGN_Step_Level1CompletedUnavailable_Bullet_v14_FFFN.gif") !important; 
+}

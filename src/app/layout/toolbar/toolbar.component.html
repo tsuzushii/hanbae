@@ -1,0 +1,195 @@
+<!-- src/app/toolbar/toolbar.component.html -->
+<div class="ToolBar">
+  <div id="MainToolbar">
+    <table width="100%" cellspacing="0" cellpadding="0" id="TableToolbar">
+      <tr>
+        <td style="width: 15%">
+          <!-- Save Button -->
+          @if (toolbarState[ToolBarButton.Save]?.visible) {
+            <span class="ImgBtnBorder" 
+                  id="ButtonSaveBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Save]?.enabled}">
+              <input type="submit" 
+                    id="ButtonSave"
+                    class="ImgBtn ImgBtnSave" 
+                    [disabled]="!toolbarState[ToolBarButton.Save]?.enabled"
+                    (click)="onSaveClick()"
+                    [value]="('ButtonSave.Text' | translate)" />
+            </span>
+          }
+          
+          <!-- Cancel Button -->
+          @if (toolbarState[ToolBarButton.Cancel]?.visible) {
+            <span class="ImgBtnBorderCancel"
+                  id="ButtonCancelBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Cancel]?.enabled}">
+              <input type="submit" 
+                    id="ButtonCancel"
+                    class="ImgBtn ImgBtnQuitAM"
+                    [disabled]="!toolbarState[ToolBarButton.Cancel]?.enabled"
+                    (click)="onCancelClick()"
+                    [value]="('ButtonCancel.Text' | translate)"  />
+            </span>
+          }
+        </td>
+        
+        <td style="width: 15%">
+          <!-- Print Button -->
+          @if (toolbarState[ToolBarButton.Print]?.visible) {
+            <span class="ImgBtnBorder"
+                  id="ButtonPrintBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Print]?.enabled}">
+              <input type="submit" 
+                    id="ButtonPrint"
+                    class="ImgBtn ImgBtnPrint"
+                    [disabled]="!toolbarState[ToolBarButton.Print]?.enabled"
+                    (click)="onPrintClick()"
+                    [value]="('ButtonPrint.Text' | translate)"  />
+            </span>
+          }
+        </td>
+        
+        <td style="width: 15%">
+          <!-- Info Button with Dropdown -->
+          @if (toolbarState[ToolBarButton.Info]?.visible) {
+            <div>
+              <span class="ImgBtnBorder"
+                    id="ButtonInfoBorder"
+                    [ngClass]="{'disabled': !toolbarState[ToolBarButton.Info]?.enabled}">
+                <input type="submit" 
+                      id="ButtonInfo"
+                      class="ImgBtn ImgBtnExpand ImgBtnInfo"
+                      [disabled]="!toolbarState[ToolBarButton.Info]?.enabled"
+                      (click)="onInfoClick()"
+                      [value]="('ButtonInfo.Text' | translate)"  />
+              </span>
+              <ul class="ActionsList">
+                <!-- CommissionsEtPouvoirs -->
+                @if (toolbarState[ToolBarButton.CommissionsEtPouvoirs]?.visible) {
+                  <li id="LiCommissionsEtPouvoirs">
+                    <a id="ButtonCommissionsEtPouvoirs"
+                      [class.disabled]="!toolbarState[ToolBarButton.CommissionsEtPouvoirs]?.enabled"
+                      (click)="onCommissionsEtPouvoirsClick()">
+                      {{'ButtonCommissionsEtPouvoirs.Text' | translate}}
+                    </a>
+                  </li>
+                }
+                
+                <!-- MotiveManualValidation -->
+                @if (toolbarState[ToolBarButton.MotifValMan]?.visible) {
+                  <li id="LiMotiveManualValidation">
+                    <a id="ButtonMotiveManualValidation"
+                      [class.disabled]="!toolbarState[ToolBarButton.MotifValMan]?.enabled"
+                      (click)="onMotiveManualValidationClick()">
+                      {{ 'ButtonMotiveManualValidation.Text' | translate}}
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </td>
+        
+        <td style="width: 15%">
+          <!-- Confirm Button -->
+          @if (toolbarState[ToolBarButton.Confirm]?.visible) {
+            <span class="ImgBtnBorder"
+                  id="ButtonConfirmBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Confirm]?.enabled}">
+              <input type="submit" 
+                    id="ButtonConfirm"
+                    class="ImgBtn ImgBtnConfirm"
+                    [disabled]="!toolbarState[ToolBarButton.Confirm]?.enabled"
+                    (click)="onConfirmClick()"
+                    [value]="('ButtonConfirm.Text' | translate)" />
+            </span>
+          }
+        </td>
+        
+        <td style="width: 5%">&nbsp;</td>
+        <td style="width: 5%">&nbsp;</td>
+        
+        <td id="previousTableCell" style="width: 15%" align="right">
+          <!-- Previous Button -->
+          @if (toolbarState[ToolBarButton.Previous]?.visible) {
+            <span class="ImgBtnBorder"
+                  id="ButtonPreviousBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Previous]?.enabled}">
+              <input type="submit" 
+                    id="ButtonPrevious"
+                    class="ImgBtn ImgBtnPrevious"
+                    [disabled]="!toolbarState[ToolBarButton.Previous]?.enabled"
+                    (click)="onPreviousClick()"
+                    [value]="('ButtonPrev' | translate)" />
+            </span>
+          }
+        </td>
+        
+        <td style="width: 15%" align="right">
+          <!-- Next Button -->
+          @if (toolbarState[ToolBarButton.Next]?.visible) {
+            <span class="ImgBtnBorder"
+                  id="ButtonNextBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Next]?.enabled}">
+              <input type="submit" 
+                    id="ButtonNext"
+                    class="ImgBtn ImgBtnNext"
+                    [disabled]="!toolbarState[ToolBarButton.Next]?.enabled"
+                    (click)="onNextClick()"
+                    [value]="('ButtonNext.Text' | translate)" />
+            </span>
+          }
+          
+          <!-- Ok Button -->
+          @if (toolbarState[ToolBarButton.Ok]?.visible) {
+            <span class="ImgBtnBorder"
+                  id="ButtonOkBorder"
+                  [ngClass]="{'disabled': !toolbarState[ToolBarButton.Ok]?.enabled}">
+              <input type="submit" 
+                    id="ButtonOk"
+                    class="ImgBtn ImgBtnOk"
+                    [disabled]="!toolbarState[ToolBarButton.Ok]?.enabled"
+                    (click)="onOkClick()"
+                    [value]="('ButtonOK.Text' | translate)" />
+            </span>
+          }
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <span id="UpdatePanelSavePrint">
+    <!-- This was the ClientContentControl in WebForms but we'll leave it empty for now -->
+  </span>
+  
+  <!-- Save validation popup -->
+  <div id="PopupSaveValidationConfirmation" [style.display]="showPopup ? 'block' : 'none'">
+    <div class="popUpContent">
+      <table width="100%">
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>
+            <span id="LabelQuest1" style="color:Blue;" [innerHTML]="popupMessage"></span>
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>
+            <span id="LabelQuest2" [innerHTML]="popupQuestion"></span>
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr>
+          <td colspan="2">
+            <div class="buttonDiv">
+              <input type="submit" value="Ja" id="ButtonSaveValidationOK" class="button" (click)="onSaveValidationOk()"> 
+              <input type="submit" value="Neen" id="ButtonSaveValidationCancel" class="button" (click)="onSaveValidationCancel()">            
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

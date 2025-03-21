@@ -1,0 +1,50 @@
+﻿/** Warranty styles (used on premium, and other pages/controls that makes use of the warranties) **/
+
+table.WarrantyTable
+{
+    width: 100%;
+    border-style: none;
+    border-collapse: collapse;
+}
+table.WarrantyTable th
+{
+    font: normal bold 13px Arial;
+    color: #013366;
+    vertical-align: bottom;
+    border-bottom: #003366 1px solid;
+    text-align:left;
+}
+table.WarrantyTable tr.spacerRow
+{
+    height:5px;
+}
+table.WarrantyTable tr
+{
+    height:22px;
+    line-height:22px;
+    vertical-align:top;
+}
+table.WarrantyTable .Invisible { display: none; }
+
+table.WarrantyTable td.GreyLine
+{
+    border-right: solid 1px #EBEBEB;
+}
+table.WarrantyTable span.WarrantyTitle
+{
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+table.WarrantyTable .AmountColumn
+{
+    padding-right: 10px;
+    text-align: right;
+}
+div#LowerArea div.Content.disabled table.WarrantyTable th
+{
+    color:gray;
+    border-bottom-color:gray;
+}
+
+div.octrooiPopUp { width:500px; }

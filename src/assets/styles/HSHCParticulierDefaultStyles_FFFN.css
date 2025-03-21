@@ -1,0 +1,404 @@
+﻿/***********************************************************************/
+/**** Default styles for controls on the page                       ****/
+/***********************************************************************/
+
+body, input, select, select option, label
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;    
+	color: #000;    	
+}
+body { background-color: #FEFEF9; }
+label.red, span.red { color:Red !important; }
+label.green, span.green { color:Green !important;}
+label.disabled, span.disabled { color:Gray !important;}
+a, a:hover,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand a,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand a:hover,
+    div.Content.disabled .popUp.active a,
+    div.Content.disabled .popUp.active a:hover
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
+a {color: #0F6190;}
+a:hover { color:#F7AE00;}
+
+
+/* gray color for all text when in a disabled Content section */
+div.Content.disabled,
+    div.Content.disabled label
+{
+    color:Gray;
+}
+/* keep text and labels black inside a disabled Content section when labels are inside an expand section of a table */
+div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand label
+{
+    color:#000;
+}
+div.Content.disabled a,
+    div.Content.disabled a:hover,
+    a.disabled,
+    a.disabled:hover,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand a.disabled,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand a.disabled:hover,
+    div.Content.disabled .popUp.active a.disabled,
+    div.Content.disabled .popUp.active a.disabled:hover
+ { color:Gray; cursor:default; }
+/* default style for buttons */
+input.smallButton
+{
+    width: 15px;
+}
+input.button,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button,
+    div.Content.disabled .popUp.active input.button
+{
+	width: 90px;
+	cursor: pointer;
+	height: 20px;
+	text-align: center;
+	border: 1px solid #83ACC7;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat;
+	color:#000;
+}
+input.button.buttonDisabled,
+    div.Content.disabled input.button,
+    input.button.arrowDisabled,
+    div.Content.disabled input.button.arrow,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button.buttonDisabled,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button.arrowDisabled,
+    div.Content.disabled .popUp.active input.button.buttonDisabled,
+    div.Content.disabled .popUp.active input.button.arrowDisabled
+{ 
+    cursor:default;
+    color:Gray;
+}
+/* options button with arrow for dropdown menu */
+input.button.arrow,
+    input.button.arrowDisabled,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button.arrow,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button.arrowDisabled,
+    div.Content.disabled .popUp.active input.button.arrow,
+    div.Content.disabled .popUp.active input.button.arrowDisabled
+{
+	background-image: url("../WebResources/HRHCGris4_vertical_arrow.gif");
+	background-position: right center;
+	background-repeat: no-repeat;   
+}
+input.button.arrowDisabled,
+    div.Content.disabled input.button.arrow,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.button.arrowDisabled,
+    div.Content.disabled .popUp.active input.button.arrowDisabled
+ { background-image: url("../WebResources/HRHCGris4_vertical_arrow_disabled.gif"); }
+
+/* span around button, faking the border in IE6 and IE7 --> default black border when focus */
+span.buttonBorder
+{
+	border: #83ACC7 1px solid;
+	width: 90px;
+	height: 20px;
+	zoom: 1;
+	display: inline;
+}
+/* Div for centerize buttons */
+div.buttonDiv
+{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width:100%;
+}
+div.buttonDivIV
+{
+	text-align: center;
+	margin-top: 70px;
+	width:100%;
+	
+}
+
+/* default style, used for editable fields on a yellow background */
+input.inputFields, 
+    select.inputFields,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.inputFields,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.inputFields,
+    div.Content.disabled .popUp.active input.inputFields,
+    div.Content.disabled .popUp.active select.inputFields
+{
+	/*line-height:14px;
+	padding-top:4px;*/
+	height:18px;
+	padding-bottom:0;
+	background-color: #FEFEF9;
+	border: 1px solid #7F9DB9;
+	/*vertical-align:text-bottom;*/
+	color:#000;
+}
+select.inputFields,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.inputFields,
+    div.Content.disabled .popUp.active select.inputFields
+{   
+    height:20px !important;
+}    
+input.inputFields, 
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.inputFields,
+    div.Content.disabled .popUp.active input.inputFields
+{
+    padding-left:3px;
+    padding-top:2px;
+    height:16px;
+}    
+/*input.inputFields {margin-top:1px; padding-left:3px;}*/
+/* used for editable fields on a white background */
+input.yellow, 
+    select.yellow,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.yellow,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.yellow
+{
+    background-color:#FFFFEC;
+}
+input.montant
+{
+	text-align: right;
+	padding-right:1px;
+}
+input.inputFields.mandatory,
+    select.inputFields.mandatory,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.inputFields.mandatory,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.inputFields.mandatory ,
+    div.Content.disabled .popUp.active input.inputFields.mandatory,
+    div.Content.disabled .popUp.active select.inputFields.mandatory
+{ 
+    background-color: #FFFF94; 
+}
+/*Start FIX 197135 - Infosys (I17258) : 14/10/2011 */
+input.mandatory,
+    select.mandatory  
+{ 
+    background-color: #FFFF94; 
+}
+/*End FIX 197135 - Infosys (I17258) : 14/10/2011 */
+input.inputFields.forceMandatory,
+    select.inputFields.forceMandatory,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.inputFields.forceMandatory,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.inputFields.forceMandatory ,
+    div.Content.disabled .popUp.active input.inputFields.forceMandatory,
+    div.Content.disabled .popUp.active select.inputFields.forceMandatory
+{ 
+    background-color: #FFFF94 !important; 
+}
+input.inputFields.inputDisabled, 
+    select.inputFields.inputDisabled,
+    div.Content.disabled input.inputFields,
+    div.Content.disabled select.inputFields,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand select.inputFields.inputDisabled,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.inputFields.inputDisabled,
+    div.Content.disabled .popUp.active select.inputDisabled,
+    div.Content.disabled .popUp.active input.inputDisabled
+{
+    border-color:#C9C7BA;
+    color:Gray;
+    background-color:transparent;
+}
+/* helpbutton styling */
+button.helpButton,
+    input.helpButton,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand button.helpButton,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.helpButton,
+    div.Content.disabled .popUp.active button.helpButton,
+    div.Content.disabled .popUp.active input.helpButton
+{
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	text-align: left;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: Transparent;
+	background-position: left center;
+	margin-left: 5px;
+	background-image: url("../WebResources/HRHCHelp.gif");    
+}
+button.helpButton.helpButtonDisabled,
+    input.helpButton.helpButtonDisabled,
+    div.Content.disabled button.helpButton,
+    div.Content.disabled input.helpButton,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand button.helpButtonDisabled,
+    div.Content.disabled div.TabbedSection div.TabContent table.generalTableStyle tr.expand input.helpButtonDisabled,
+    div.Content.disabled .popUp.active input.helpButtonDisabled,
+    div.Content.disabled .popUp.active button.helpButtonDisabled
+{
+	background-image: url("../WebResources/HRHCHelp_Disabled.gif");
+	cursor: default;    
+}
+
+.hidden{ display: none; } /* to hide specific controls */
+
+/*********************************************************************************************************/
+/** Default control class styles **/
+/*.checkbox {padding:0;margin-left:-3px;} */
+
+
+.labelTotal {
+          padding-left:80px;
+          }
+
+.subTitle
+{
+	color: #013366;
+	font: normal bold 13px Arial;
+	padding: 10px 5px 5px 0px;
+	text-decoration: none;
+	vertical-align: bottom;
+}
+
+.subtitle_with_border
+{
+	font: normal bold 13px Arial;
+	color: #013366;
+	vertical-align: bottom;
+	padding: 10px 5px 5px 5px;
+	border-bottom: #003366 1px solid;
+}
+
+.subtitle_with_border_disabled
+{
+	font: normal bold 13px Arial;
+	color: Gray;
+	vertical-align: bottom;
+	padding: 10px 5px 5px 5px;
+	border-bottom: #003366 1px solid;
+}
+/** style with the default text mark-up -- used in the body **/
+.standardText
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #000;
+}
+
+/* default button style */
+.buttonOptions
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 65px;
+	cursor: pointer;
+	height: 20px;
+	text-align: center;
+	border: #83ACC7 1px solid;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif"); /*background-repeat: repeat-x;*/
+	background-repeat: repeat;
+	margin: 0px 5px 0px 5px;
+}
+
+.optionButton
+{
+	width: 65px;
+	height: 10%;
+}
+.bold_text
+{
+	font-weight: bold;
+}
+/* Style to be placed on all InputFields (textbox dropdownlist) */
+
+.inputFieldsYellow
+{
+	height: 14px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal; /*color: #003366;*/
+	color: #000;
+	border-style: groove;
+}
+/* Extra style to be placed on dropdownlists (FF bug in height) */
+
+
+/* Styles for read-only fields */
+.readOnly
+{
+	color: Gray;
+	font-weight: normal; /*font-weight:bold;*/
+}
+
+/* Default style for disabled fields */
+.disabled, .disabled_no_bold
+{
+	color: Gray;
+	cursor: default;
+	background-color: transparent; /*filter:alpha(opacity=100); /* transparent background for ie6 - not working*/
+	border-color:#C9C7BA;
+}
+.dropdownDisabled
+{
+	background-color: #FFFFEC;
+/* Extra style for fields with amount values */
+}
+.disabledBorder
+{
+	border-color: Gray;
+}
+
+/*The dxgv... - styles are used to overwrite the dxgvHeader-style (autogenerated by DevExpress)
+    to give the headerrow the same style as defined in class GridView */
+.dxgvHeader td, .dxgvHeader
+{
+	background-color: #7493C2;
+	height: 24px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: center;
+	color: #FEFEF9;
+}
+
+/* Style for Evaluation Form */
+.bold
+{
+	font-weight: bold;
+}
+.underline
+{
+	text-decoration: underline;
+}
+.totalstyledisabled
+{
+	background-color: White;
+	color: Gray;
+	border-style: groove;
+}
+.colorRed
+{
+    color:Red;
+}
+
+span.show-tooltip-text 
+{ 
+    display: none; 
+    position: absolute; 
+    font-size: 0.9em; 
+    padding: 2px; 
+    padding-left: 4px; 
+    padding-right: 4px; 
+    color: #000000;
+    background-color:#FFFFE1;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px; 
+}
+span.smallEuro
+{
+    font-size : 10px;
+}

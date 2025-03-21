@@ -1,0 +1,21 @@
+<select 
+      [id]="id"
+      [name]="name"
+      [ngClass]="cssClass"
+      [disabled]="disabled"
+      (change)="onSelectionChange($event)">
+      
+      <!-- Empty option if AllowNull is true -->
+      @if (allowNull) {
+        <option value=""></option>
+      }
+      
+      <!-- Options from the Codotheque -->
+      @for (item of items; track item.code) {
+        <option 
+          [value]="item.code" 
+          [attr.selected]="item.code === selectedValue ? 'true' : null">
+          {{ renderCaption(item.code, item.label) }}
+        </option>
+      }
+    </select>

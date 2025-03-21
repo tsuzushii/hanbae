@@ -1,0 +1,1452 @@
+﻿html, body
+{
+	height: 100%;
+	overflow: hidden;
+}
+
+
+BODY
+{
+	background-color: #FEFEF9;
+}
+
+.PanelUtility
+{
+	height: 100%;
+	width: 100%;
+	text-align: right;
+}
+
+.TOOLBAR
+{
+	background-color: #FEFEF9;
+	border-style: solid;
+	border-color: #99CC00;
+	border-top: 1px;
+	border-bottom: 1px;
+	border-right: 1px;
+	border-left: 1px;
+	padding-top: 5px;
+	padding-left: 10px;
+}
+/***********/
+/* BUTTONS */
+/***********/
+.BUTTON
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 15pt;
+	text-align: center;
+	background-color: #EBEBEB;
+}
+
+.BUTTON_Default
+{
+	/*font-family: Arial; 	font-Size: 12px;      color: Black;     font-weight:normal;     WIDTH: 70pt;     CURSOR: hand;     HEIGHT: 18pt;     TEXT-ALIGN: center;         background-color : #EBEBEB ;      border : #83ACC7 1px solid;      */
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 80pt;
+	cursor: hand;
+	height: 18pt;
+	text-align: center;
+	border: #83ACC7 1px solid;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+
+.BUTTON_Option
+{
+	width: 50pt;
+	height: 10%;
+}
+
+.BUTTON_Help
+{    
+	width: 10pt;
+	height: 10%;
+	margin: 0 3px 0 3px;
+}
+
+.Test_Button
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 80pt;
+	cursor: hand;
+	height: 18pt;
+	text-align: center;
+	border: none;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+.BUTTON_Default_no_border
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 80pt;
+	cursor: hand;
+	height: 18pt;
+	text-align: center;
+	border: none;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+
+.Button_Default_Border
+{
+	border: #83ACC7 1px solid;
+}
+
+.BUTTON_Gerer
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 18pt;
+	text-align: center;
+	background-color: #EBEBEB;
+	border: #83ACC7 1px solid;
+	background-image: url("../WebResources/HRHCGerer.gif");
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.BUTTON_Gerer_Disabled
+{
+	background-image: url("../WebResources/HRHCGerer_Disabled.gif");
+	cursor: default;
+}
+
+/* Image buttons styles */
+.ImgBtnBorder
+{
+	border: 1px solid #FEFEF9;
+}
+.ImgBtnBorderHover
+{
+	border: 1px solid #99CC00;
+}
+
+.ImgBtn
+{
+	font: Arial 12px normal;
+	color: #000000;
+	width: 80pt;
+	height: 18pt;
+	cursor: hand;
+	text-align: left;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: Transparent;
+	background-position: left center;
+	margin: 0;
+	padding: 0px 0px 0px 25px;
+}
+.ImgBtnSave
+{
+	background-image: url("../WebResources/HRHCSauvegarder.gif");
+}
+.ImgBtnPrint
+{
+	background-image: url("../WebResources/HRHCImprimer.gif");
+}
+.ImgBtnVerify
+{
+	background-image: url("../WebResources/HRHCVerifier.gif");
+}
+.ImgBtnConfirm
+{
+	background-image: url("../WebResources/HRHCConfirmer.gif");
+}
+.ImgBtnActions
+{
+	background-image: url("../WebResources/HRHCAction.gif");
+}
+.ImgBtnPrevious
+{
+	background-image: url("../WebResources/HRHCPrecedent.gif");
+}
+.ImgBtnNext
+{
+	background-image: url("../WebResources/HRHCSuivant.gif");
+	background-position: right center;
+	text-align: right;
+	padding: 0px 35px 0px 0px;
+}
+
+/* Image button disabled styles */
+.ImgBtnSaveDisabled
+{
+	background-image: url("../WebResources/HRHCSauvegarder_Disabled.gif");
+}
+.ImgBtnPrintDisabled
+{
+	background-image: url("../WebResources/HRHCImprimer_Disabled.gif");
+}
+.ImgBtnVerifyDisabled
+{
+	background-image: url("../WebResources/HRHCVerifier_Disabled.gif");
+}
+.ImgBtnConfirmDisabled
+{
+	background-image: url("../WebResources/HRHCConfirmer_Disabled.gif");
+}
+.ImgBtnActionsDisabled
+{
+	background-image: url("../WebResources/HRHCAction_Disabled.gif");
+}
+.ImgBtnPreviousDisabled
+{
+	background-image: url("../WebResources/HRHCPrecedent_Disabled.gif");
+}
+.ImgBtnNextDisabled
+{
+	background-image: url("../WebResources/HRHCSuivant_Disabled.gif");
+}
+.BtnDisabled
+{
+	cursor: default;
+}
+
+/* Images for the help */
+
+
+.ImgHelpBtn
+{
+	font: Arial 12px normal;
+	color: #000000;
+	width: 21px;
+	height: 23px;
+	cursor: hand;
+	text-align: left;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: Transparent;
+	background-position: left center;
+	margin: 0;
+	padding: 0px 0px 0px 25px;
+}
+
+.ImgHelpBtnVertLabel
+{
+   vertical-align:middle;
+}
+
+
+
+.ImgHelpBtnHelp
+{
+	background-image: url("../WebResources/HRHCHelp.gif");
+}
+.ImgHelpBtnHelpDisabled
+{
+	background-image: url("../WebResources/HRHCHelp_Disabled.gif");
+}
+
+.ImageButton
+{
+	background-repeat: no-repeat;
+	background-position: left;
+	text-align: center;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 15pt;
+	background-color: #EBEBEB;
+	border: #83ACC7 1px solid;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+.ImageButton_Default
+{
+	background-repeat: no-repeat;
+	background-position: left;
+	text-align: center;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 15pt;
+	border: #F7AE00 1px solid;
+	background-color: #EBEBEB;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+
+
+.BUTTON_With_Border
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: default;
+	height: 15pt;
+	text-align: center;
+	background-color: Transparent;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+}
+
+.BUTTON_With_Border_Alternative
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: default;
+	height: 15pt;
+	text-align: center;
+	background-color: #EBEBEB;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+}
+
+.BUTTON_Disabled
+{
+	cursor: default;
+}
+
+/**************************************************************/
+.Header
+{
+	background-color: #FEFEF9;
+}
+.Header_Libelle
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+	color: Black;
+}
+.Header_Data
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+	color: Black;
+}
+
+/**************************************************************/
+.Application_Title
+{
+	font-family: Arial;
+	font-size: 32px;
+	font-weight: bold;
+	color: #F7AE00;
+}
+
+.TopArea
+{
+	border-bottom: Black 1px solid;
+	background-color: #7493C2;
+}
+
+.GeneralButtons
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FEFEF9;
+}
+
+.Border_Bottom_Title
+{
+	border-bottom: #003366 3px solid;
+}
+
+.Border_Bottom_Title_Disabled
+{
+	border-bottom: InactiveBorder 3px solid;
+}
+
+.Border_Bottom_Sub_Title_Level_1
+{
+	border-bottom: #003366 3px solid;
+}
+.Border_Bottom_Sub_Title_Level_2
+{
+	border-bottom: #003366 1px solid;
+}
+.Border_Bottom_Blue
+{
+	border-bottom: #83ACC7 2px solid;
+}
+
+/**************************************************************/
+
+.Hyperlink
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: #0F6190;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.Hyperlink:hover
+{
+	text-decoration: underline;
+	color: #F7AE00;
+}
+.Hyperlink_Visited
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: #F7AE00;
+	text-decoration: none;
+}
+.Hyperlink_Visited:hover
+{
+	text-decoration: underline;
+}
+
+/**************************************************************/
+/* MASTERPAGE UTILITYLINK STYLE */
+
+.HyperlinkUtilitySeparator
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.HyperlinkUtility
+{
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 12px;
+	font-style: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.HyperlinkUtility:hover
+{
+	text-decoration: underline;
+}
+/**************************************************************/
+
+.Tasklink
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	text-decoration: none;
+	color: #0F6190;
+}
+.Tasklink:hover
+{
+	text-decoration: underline;
+	color: #F7AE00;
+}
+.Tasklink_Visited
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: #F7AE00;
+	text-decoration: none;
+}
+
+/**************************************************************/
+
+.Label
+{
+	height: 16px;
+	font-family: Arial;
+	font-size: 12px;
+	color: #808080;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.Label_Champs
+{
+	height: 10px;
+	font-family: Arial;
+	font-size: 11px;
+	color: Black;
+	font-style: normal;
+}
+
+.Check_Radio_Label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+
+.ListBox_Label
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+
+.Label_BackColor_Top
+{
+	background-color: #EBEBEB;
+	padding-right: 3px;
+	vertical-align: top;
+	text-align: right;
+}
+.Label_BackColor_Center
+{
+	background-color: #EBEBEB;
+	padding-right: 3px;
+	vertical-align: bottom;
+	text-align: right;
+	margin-left: 40px;
+}
+.Label_BackColor_TopCenter
+{
+	background-color: #EBEBEB;
+	vertical-align: top;
+	text-align: Center;
+}
+.Label_BackColor_TopLeft
+{
+	background-color: #EBEBEB;
+	vertical-align: top;
+	text-align: Left;
+}
+
+/**************************************************************/
+/* GRIDVIEW STYLE */
+
+.GridviewGeneralStyle
+{
+	border-bottom-width: 0px;
+	border-bottom-style: none;
+}
+.GridviewRowStyle
+{
+	background-color: #EBEBEB;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	border-bottom: 1px solid #ffffff;
+}
+
+
+.GridviewRowStyleDisabled
+{
+	background-color: #EBEBEB;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Gray;
+	font-style: normal;
+	border-bottom: 1px solid #ffffff;
+}
+.SecondGridviewRowStyle
+{
+	background-color: #dce6ff;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+.GridviewSelectedRowStyle
+{
+	background-color: #F6E9B6;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: bold;
+}
+.GridviewAlternatingRowStyle
+{
+	background-color: #FEFEF9;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+.GridviewHeaderStyle
+{
+	/*background-color: #8C8C90;*/
+	background-color: #7493C2;
+	height: 24px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold; /*font-weight: bold;*/
+	text-align: left;
+	color: #FEFEF9;
+}
+.GridviewHeaderStyleDisabled
+{
+	background-color: #8C8C90;
+	color: #E0E0E0;
+	height: 24px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+}
+.GridviewHoverRowStyle
+{
+	background-color: #F6E9B6;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: bold;
+}
+.SecondGridviewHeaderStyle
+{
+	background-color: #8C8C90;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+}
+.GridviewEmptyDataRowStyle
+{
+	background-color: #EBEBEB;
+	height: 20px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+.GridviewPagerStyle
+{
+	height: 20px;
+	font-family: Arial;
+	font-size: 10px;
+	color: Black;
+	font-style: normal;
+}
+
+.GridviewTitle_Row
+{
+	height: 12px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	padding-left: 10px;
+	text-align: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+	background-color: Transparent;
+}
+
+.GridviewTitle_Row_Alternative
+{
+	height: 12px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	padding-left: 10px;
+	text-align: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+	background-color: #EBEBEB;
+}
+
+.GridviewTitle_Image
+{
+	height: 12px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	padding-left: 10px;
+	text-align: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+	background-color: Transparent;
+	padding-left: 40px;
+}
+
+.GridviewTitle_Image_Alternative
+{
+	height: 12px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	padding-left: 10px;
+	text-align: left;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #8C8C90;
+	background-color: #EBEBEB;
+	padding-left: 40px;
+}
+
+.Gridview_Row
+{
+	height: 12px;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	padding-left: 5px;
+	background-color: Transparent;
+}
+
+/**************************************************************/
+/* ERROR DISPLAY STYLE */
+
+.EDSummaryGlobal
+{
+	font-family: Arial;
+	font-size: 12px;
+	background-color: #FEFEF9;
+	border-color: #E2B838;
+	border-width: 2px;
+}
+.EDTitleBar
+{
+	background-color: #D7E4F6;
+	font-family: Arial;
+	font-weight: bold;
+	color: #003366;
+}
+.EDErrorCode
+{
+	color: Red;
+	font-weight: bold;
+	font-family: Arial;
+}
+.EDWarningCode
+{
+	color: Black;
+	font-weight: bold;
+	font-family: Arial;
+}
+.EDNotificationCode
+{
+	color: Black;
+	font-weight: bold;
+	font-family: Arial;
+}
+.EDSysErrorCode
+{
+	color: Red;
+	font-weight: bold;
+	font-family: Arial;
+}
+.EDDetailGlobal
+{
+	font-family: Arial;
+	font-size: 12px;
+}
+.EDDetailContainer
+{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E2B838;
+	background-color: #E2B838;
+}
+.EDDetailContent
+{
+	background-color: #FEFEF9;
+}
+.EDDetailErrorsList
+{
+	font-family: Arial;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+}
+.EDDetailDescription
+{
+	font-family: Arial;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+	background-color: #FEFEF9;
+}
+.EDDetailStacktrace
+{
+	font-family: Arial;
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+	background-color: #FEFEF9;
+	color: #9DB9EB;
+}
+
+.ED_WarningButtonsDiv
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	overflow: auto;
+	width: 100%;
+	padding-bottom: 5px;
+}
+.ED_WarningButtonsDiv .WarningButtons
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 15pt;
+	text-align: center;
+	background-color: #EBEBEB;
+	border: #83ACC7 1px solid;
+}
+
+.ED_SummaryDiv
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	overflow: auto;
+	height: 55px;
+	width: 100%;
+	padding-bottom: 5px;
+}
+.ED_SummaryDiv .LabelError
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+}
+
+.ED_SummaryDiv .LabelErrorLinkedControl
+{
+	cursor: pointer;
+	text-decoration: underline;
+	color: Black;
+}
+
+.ED_SummaryDiv .ED_MessageErrorLinkedControl
+{
+	cursor: pointer;
+	text-decoration: underline;
+	color: Red;
+}
+
+.ED_SummaryDiv .ED_MessageError
+{
+	cursor: pointer;
+	text-decoration: none;
+	color: Red;
+}
+
+.ED_SummaryDiv .LabelWarning
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+}
+.ED_SummaryDiv .LabelNotification
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+}
+.ED_SummaryDiv .CodothequeLabelError
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: Red;
+}
+.ED_SummaryDiv .CodothequeLabelWarning
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: Black;
+}
+.ED_SummaryDiv .CodothequeLabelNotification
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: normal;
+	color: Black;
+}
+.ED_DetailPopup
+{
+	width: 500px;
+	height: 150px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+	overflow: auto;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E2B838;
+}
+
+.ED_WarningPopup
+{
+	width: 500px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+	overflow: auto;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E2B838;
+}
+/**************************************************************/
+
+.MBGlobal
+{
+	font-family: Arial;
+	font-size: 12px;
+	background-color: #FEFEF9;
+	border-width: 2px;
+	border-color: #003366;
+}
+
+.MBTitleBar
+{
+	background-color: #003366;
+	font-family: Arial;
+	font-weight: bold;
+	color: #FEFEF9;
+}
+
+.MBTextBox
+{
+	background-color: #FEFEF9;
+	font-size: 12px;
+	font-family: Arial;
+	color: Black;
+	text-align: center;
+}
+.MBButton
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 70pt;
+	cursor: hand;
+	height: 15pt;
+	text-align: center;
+	background-color: #EBEBEB;
+}
+
+/**************************************************************/
+
+
+.tableofadiv
+{
+	border-collapse: collapse;
+	padding-left: 15px;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #EFEFEF;
+	border-left-style: solid;
+	border-left-width: 2px;
+	border-left-color: #EFEFEF;
+}
+
+.celltitlenormalofadiv
+{
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: #EFEFEF;
+	background-color: #FFFFEC;
+}
+
+.celltitlerightofadiv
+{
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: #EFEFEF;
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: #EFEFEF;
+	background-color: #FFFFEC;
+}
+.celloutoftitleofadiv
+{
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #EFEFEF;
+}
+
+.cellcontentofadiv
+{
+	background-color: #FFFFEC;
+}
+
+.cellcontentrightofadiv
+{
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: #EFEFEF;
+	background-color: #FFFFEC;
+}
+
+.intervenient
+{
+}
+
+.BorderLeftAndBottom
+{
+	border-left: #135192 1px solid;
+	border-bottom: #135192 1px solid;
+}
+.BorderBottom
+{
+	border-bottom: #135192 1px solid;
+}
+.BorderRight
+{
+	border-right: #135192 1px solid;
+}
+.BorderLeft
+{
+	border-left: #135192 1px solid;
+}
+
+.BorderBottomAvecCadreOrange
+{
+	border-bottom: #135192 1px solid;
+	border-left: #F7AE00 1px solid;
+	border-right: #F7AE00 1px solid;
+}
+.BorderBottomAvecCadreOrangeTop
+{
+	border-bottom: #135192 1px solid;
+	border-left: #F7AE00 1px solid;
+	border-right: #F7AE00 1px solid;
+	border-top: #F7AE00 1px solid;
+}
+
+.CadreOrange
+{
+	border-left: #F7AE00 1px solid;
+	border-right: #F7AE00 1px solid;
+}
+.FinCadreOrange
+{
+	border-left: #F7AE00 1px solid;
+	border-right: #F7AE00 1px solid;
+	border-bottom: #F7AE00 1px solid;
+}
+
+
+.LabelGridviewHeader
+{
+	background-color: #8C8C90;
+	height: 24px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: text-bottom;
+	vertical-align: bottom;
+	color: #FEFEF9;
+}
+
+/**************************************************************/
+
+
+
+/**************************************************************/
+
+.MENU
+{
+	background-color: #777777;
+}
+
+
+.Page_Title
+{
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #F7AE00;
+}
+.Sub_Title_Level_1
+{
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #F7AE00;
+}
+.Sub_Title_Level_2
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #F7AE00;
+}
+
+.TITLE
+{
+	font-family: Arial;
+	font-size: 14pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #013366;
+	vertical-align: bottom;
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.SUBTITLE
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #013366;
+	vertical-align: bottom;
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	width: 100%;
+}
+
+.SUBTITLE_With_Underline
+{
+	font-family: Arial;
+	font-size: 12pt;
+	font-style: normal;
+	font-weight: bold;
+	color: #013366;
+	vertical-align: middle;
+	padding-left: 0px;
+	padding-top: 0px;
+	padding-bottom: 4px;
+	border-bottom: #013366 2px solid;
+}
+
+.TEXT
+{
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #013366;
+}
+
+.INPUT_TEXT
+{
+	height: 16px;
+	background-color: #FEFEF9;
+	font-family: Arial;
+	font-size: 12px;
+	color: #013366;
+	font-style: normal;
+	border-style: groove;
+}
+
+.Text_Disabled
+{
+	height: 16px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Gray;
+	font-weight: bold;
+}
+.Text_ReadOnly
+{
+	font-weight: bold;
+	height: 16px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: black;
+}
+
+.Text_ReadOnly_Mandatory
+{
+	height: 16px;
+	background-color: #FFFF94;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: bold;
+}
+
+.Text_Editable
+{
+	height: 16px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	border-style: groove;
+}
+
+.Montant_Editable
+{
+	height: 22px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	text-align: right;
+	border-style: groove;
+}
+
+.scroll
+{
+	width: 100%; /*la largeur de la div*/
+	height: 100%; /*400 pixels par exemple*/
+	border: 3px solid #FFFFEC; /*un bord de 1 pixel de couleur noire par exemple*/
+	margin-left: 0px; /*la marge entre le bord gauche et la div*/
+	overflow: hidden; /*l'option de scroll automatique. le scroll apparaitra si le contenu de la div déborde de celle-ci sans que cette dernière s'adapte au contenu*/ /*Plus les autres propriétés que tu souhaiterais.*/
+}
+
+.Text_EditableConfirm
+{
+	height: 22px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+	border-style: groove;
+}
+
+.Text_EditablePopUp
+{
+	height: 22px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-style: normal;
+}
+
+.Text_DisabledNoBold
+{
+	height: 22px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Gray;
+}
+
+.SUBTITLE_AVANTAGES_SUPP
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-style: normal;
+	color: Black;
+	vertical-align: bottom;
+	padding-left: 0px;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	text-decoration: underline;
+}
+
+.TextBox_Disabled
+{
+	height: 18px;
+	background-color: #FFFFEC;
+	font-family: Arial;
+	font-size: 12px;
+	color: Gray;
+	border-style: groove;
+}
+
+.TreeView
+{
+	/*border-left:#99CC00 1px solid; 	border-bottom:#99CC00 1px solid; 	border-right:#99CC00 2px solid; 	border-top:#99CC00 1px solid;*/
+	font-family: Arial;
+	font-style: normal;
+	font-size: 12px; /*width:175px; 	height:95%;*/ /*position:absolute;*/
+	left: 20px;
+	top: 10px;
+}
+
+.TreeView div div
+{
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #99CC00;
+}
+
+.TreeView div div div
+{
+	border-bottom-style: none;
+}
+
+
+.BUTTON_FOR_POPUP
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 80pt;
+	cursor: hand;
+	height: 18pt;
+	text-align: center;
+	background-color: #EBEBEB;
+	border: #83ACC7 1px solid;
+	padding-right: 10px;
+	background-image: url("../WebResources/HRHCGris4_vertical.gif");
+	background-repeat: repeat-x;
+}
+
+.POPUP_General
+{
+	background-color: #FEFEF9;
+}
+
+div#dGeneral
+{
+	position: relative;
+	min-height: 100%;
+	min-width: 100%; /*widows:100%; 	height:100%;*/
+	overflow: auto;
+}
+
+div#dHeader
+{
+	position: relative;
+	width: 100%;
+	height: 10%;
+	min-height: 10%;
+	min-width: 100%;
+}
+
+div#dTreeview
+{
+	width: 17%;
+	height: 90%;
+	min-height: 90%;
+	min-width: 17%;
+	position: absolute;
+	float: left;
+}
+
+div#dBody
+{
+	position: relative;
+	top: 0;
+	width: 83%;
+	min-width: 83%;
+	min-height: 90%;
+	height: 90%;
+	float: right;
+	left: -1;
+	bottom: 0;
+	overflow: auto;
+}
+
+
+div#dContent
+{
+	right: 0;
+	width: 100%;
+	height: 70%;
+	min-height: 70%;
+	position: absolute;
+}
+
+div#dError
+{
+	position: absolute;
+	right: 0;
+	width: 100%;
+	height: 30%;
+	min-height: 30%;
+	bottom: 0;
+}
+.INPUT_TEXT_SIMPLE
+{
+	height: 16px;
+	background-color: #FEFEF9;
+	font-family: Arial;
+	font-size: 12px;
+	color: #013366;
+	font-style: normal;
+	border-style: groove;
+}
+
+.INPUT_TEXT_SIMPLE_Disabled
+{
+	background-color: #FFFFEC;
+}
+
+.Expand
+{
+	border: solid 5px #EBEBEB;
+	background-color: #FEFEF9;
+}
+#mainFrame
+{
+	z-index: 1;
+}
+
+
+.INPUT_TEXT_MANDATORY
+{
+	height: 16px;
+	background-color: #FFFF94;
+	font-family: Arial;
+	font-size: 12px;
+	color: #013366;
+	font-style: normal;
+	border-style: groove;
+}

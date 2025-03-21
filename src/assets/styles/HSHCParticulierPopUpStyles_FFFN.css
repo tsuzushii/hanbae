@@ -1,0 +1,423 @@
+﻿/**************************************************************************************/
+/** Styling for popup                                                                **/
+/**************************************************************************************/
+
+/* General PopUp Container */
+html
+{
+	overflow: hidden
+	}
+.popUp 
+{
+    border: 1px solid #003163 !important;
+}
+.popUp td.dxpcContent /* override devExpress style */
+{
+    margin:0;
+    padding:0;
+}
+/* Styling the header */
+.popUpHeader,
+    .popUpHeader td
+{
+    height:20px !important;
+    background-color:#003163 !important;
+}
+.popUpHeader, .popUpHeader td.dxpc
+{
+    color:#FFFFFF !important;
+    font-size:14px !important;
+    font-weight:bold !important;
+    font-family: Arial !important;    
+}
+/* Styling the content */
+.popUpContent
+{
+    background-color: #FEFEF9 !important;
+    font-family: Arial !important;
+    font-style: normal !important;
+    padding:5px 10px 10px 10px !important;
+    /*background-color:Aqua;*/
+    /*float:left;*/
+}
+
+.popUpContent h1, .popUpContent h2
+{
+    width:100%;
+    font-size: 20px !important;
+    color: #036 !important;
+    border-bottom: #036 2px solid !important;
+    margin-bottom:5px;
+    
+    /*background-color:Green;*/
+}
+.popUpContent h2
+{
+    font-size: 15px !important;
+    border-bottom: #036 1px solid !important;
+    display: inline-block; /* Needed to display the content of tag <h2> in IE6 under citrix */
+}
+.popUpContent h3
+{
+    font-size: 13px !important;
+    color: #036 !important;
+    margin: 5px;
+}
+.popUpContent div#overflowDiv
+{
+    float:left;
+    width:100%;
+    /*background-color:Red;*/
+    /*overflow-y:auto;
+    overflow-x:hidden;*/
+    /*display:inline;*/
+}
+
+/** Styling the lists in PopUp controls **/
+.popUpContent table.list
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: Black;
+    font-style: normal;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.popUpContent table.list td
+{
+    padding: 0px 5px 0px 8px;
+    background-color: #FEFEF9;
+    height: 20px;
+}
+
+.popUpContent table.list .header
+{
+    border-bottom: #135192 1px solid;
+    padding: 0;
+}
+
+.popUpContent table.list .borderRight
+{
+    text-align: right;
+    white-space: nowrap;
+    border-right: #135192 1px solid;
+}
+
+.popUpContent table.list td.number
+{
+    text-align: right;
+}
+
+/*Start FIX 157590 - Infosys (I17258) : 27/10/2011 - Change background color of selected td from F6E9B6 to FFCF31 */
+.popUpContent table.list tr td.selected,
+    .popUpContent table.list tr.selected td
+{
+    background-color: #FFCF31;
+    font-weight: bold;
+}
+/*End FIX 157590 - Infosys (I17258) : 27/10/2011 */
+.popUpContent table.list tr td.hoverStyle,
+    .popUpContent table.list tr.hoverStyle td
+{
+
+    background-color: #FEF4DD;
+    font-weight: bold;
+    cursor:pointer;
+
+}
+
+div.autoHeight
+{
+    height: auto !important;
+}
+
+div.webmessageBox div#webmessageContent
+{
+    height:50px;
+    padding-left:50px;
+    background-image:url("../WebResources/HRHCExclamation_FFFN.gif");
+    background-repeat:no-repeat;
+    background-position:left top;
+}
+
+div.webmessageBox div.buttonDiv
+{
+    margin-bottom:0px;
+    height:20px;
+}
+
+.popUpContent div#ErrorContainer { float:none; }
+
+/*.PopUpStyle
+{
+    border: 1px solid #003163;
+}
+.PopUp
+{
+    background-color: #FEFEF9;
+    font-family: Arial;
+    font-style: normal;
+    margin:5px 10px 5px 10px;
+}
+
+.PopUp h1, .PopUp h2, .PopUp h3
+{
+    font-weight: bold;
+    color: #013366;
+    display: inline-block; /*Needed for IE6 to display the borders*/
+/*}
+
+.PopUp h1
+{
+    font-size: 15px;
+    border-bottom: solid 2px #013366;
+    margin: 10px 0px 5px 0px;
+}
+
+.PopUp h2
+{
+    font-size: 13px;
+    margin: 10px 0px 4px 0px;
+    border-bottom: solid 1px #013366;    
+}
+
+.PopUp h3
+{
+    font-size: 13px;
+    margin: 10px 0px 4px 0px;
+}
+
+.PopUp .TableHeading
+{
+    font-weight: bold;
+    color: #013366;
+    font-size: 13px;
+}
+
+.popUpContent .ErrorDisplayContainer
+{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.popUpContent .EDBody
+{
+    height: 55px;
+}
+
+
+td .dxpcContent
+{
+    padding:0;
+}
+*/
+.Border_Bottom_Title
+{
+    border-bottom: #003366 3px solid;
+}
+
+.TITLE
+{
+    font-family: Arial;
+    font-size: 14pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #013366;
+    vertical-align: bottom;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.SUBTITLE
+{
+    font-family: Arial;
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #013366;
+    vertical-align: bottom;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.SUBTITLE_With_Underline
+{
+    font-family: Arial;
+    font-size: 12pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #013366;
+    vertical-align: middle;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 4px;
+    border-bottom: #013366 2px solid;
+}
+
+.BUTTON_FOR_POPUP
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: Black;
+    font-weight: normal;
+    width: 90px;
+    cursor: pointer;
+    height: 20px;
+    text-align: center;
+    border: #83ACC7 1px solid;
+    background-image: url("../WebResources/HRHCGris4_vertical.gif");
+    background-repeat: repeat-x;
+}
+
+.Text_EditablePopUp
+{
+    height: 22px;
+    background-color: #FFFFEC;
+    font-family: Arial;
+    font-size: 12px;
+    color: Black;
+    font-style: normal;
+}
+.MBButton
+{
+    font-family: Arial;
+    font-size: 12px;
+    color: Black;
+    font-weight: normal;
+    width: 90px;
+    cursor: pointer;
+    height: 20px;
+    text-align: center;
+    border: #83ACC7 1px solid;
+    background-image: url("../WebResources/HRHCGris4_vertical.gif");
+    background-repeat: repeat-x;
+}
+
+/* Styles used to grey out dropdowns in the background 
+ * when a popup is shown (IE6) 
+ */
+.dropdownBackgroundStyle
+{
+    color: #AAAAAA !important;
+    background-color: #AAAAAA !important;
+    z-index: 9999 !important;
+}
+
+.greyOut
+{
+    background-color: #BBBBBB !important;
+}
+
+/* Request 149172
+ * On parent page all select & input elements get disabled so they can't be changed when popup has appeared.
+ * You can add the controlEnabledInpopup-Class to your control to avoid from getting disabled on appearance of popup.
+ * (Also: When popup-content is build from a usercontrol)
+ */
+.controlEnabledInpopup
+{
+}
+
+/** Button List Help Pop-Up**/
+/*Start FIX 196951 - Infosys (I17528) : 06/10/2011*/
+.ButtonListHelpPopUp
+{
+	z-index:20;
+    display:none;
+    position:absolute;
+    border:solid 1px White;
+   /* width:125px;*/
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    background-color:#7493C2;
+    text-align:left;
+}
+    
+.ButtonListHelpPopUp li
+{
+    display:block;
+    /*width:123px;*/
+    background-color:#7493C2;
+    margin:0;
+    padding:0;
+}
+    
+.ButtonListHelpPopUp li a
+{
+    font: bold 12px Arial;
+    text-decoration:none;
+    display:block;
+    /*width:119px;*/
+    color:White;
+    cursor:pointer;
+    border:0px solid White;
+    padding:2px 5px 2px 5px;
+    margin:1px 1px 1px 1px;
+}
+/*.ButtonListHelpPopUp li a:hover
+{
+    color:White;
+    border:0px solid White;
+    text-decoration:underline;
+}*/
+.ButtonListHelpPopUp li a:hover
+{
+    color: White;
+    text-decoration: none;
+    border: 1px solid #99CC00;
+    padding: 1px 4px 1px 4px;
+}
+/*End FIX 196951 - Infosys (I17528) : 06/10/2011*/
+    
+.ButtonListHelpPopUp li a.disabled
+{
+    color:#BEBEBE;
+    cursor:default;
+}
+
+
+/* Only for Popup Evaluation and Popup NaturalDisaster*/
+#ContentsSection
+{
+    width: 98%; 
+    height:600px;
+    overflow:auto;
+}
+
+
+/** ********************************************** **/
+/** Styles for small display popup **/
+        .smallPopUp
+        {
+            border:solid 1px #8C8C90;
+            background-color:#FEFEF9;
+            position:absolute; /*relative;*/
+            display:none;
+            z-index:999999;
+            padding:2px 5px 5px 5px;
+        }
+        .smallPopUpHeader
+        {
+            height:20px;
+        }        
+        .popUpCloseButton
+        {
+            float:right;
+            width:20px;
+            height:20px;
+            cursor:pointer;
+            background-image:url("../WebResources/HRHCHelpClose.gif");
+        }   
+        .smallPopUpContentContainer
+        {
+            padding-top:2px;
+        }        
+        .helpPopUp
+        {
+            width:200px;
+        }

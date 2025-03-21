@@ -1,0 +1,38 @@
+<div id="UtilBar" class="UtilBar">
+    <div id="Panel_UtilityLink" class="UtilLinks">
+        <!-- Help Link -->
+        <a id="IDUtilityLinkHelp" href="#" [class.disabled]="isHelpDisabled" (click)="onHelp()">
+          {{ 'UtilityLinkHelp' | translate }}
+        </a>
+      
+        <ul class="ButtonListHelpPopUp">
+          <li id="LiVersInside">
+            <a id="ButtonVersInside" href="#" (click)="onHelp()">
+              {{ 'ButtonLienInside' | translate }}
+            </a>
+          </li>
+        </ul>
+      
+        <!-- Separator -->
+        <span>  |  </span>
+      
+        <!-- Exit Image (now correctly an input type="image") -->
+        <input
+          type="image"
+          id="IDUtilityButtonExit"
+          name="IDUtilityButtonExit"
+          src="assets/WebResources/HRHCHealthCareExit.gif"
+          style="border-width: 0px"
+          [disabled]="isExitDisabled"
+          (click)="onExit()"
+        />
+      
+        <!-- Exit Link -->
+        <a id="IDUtilityLinkExit" href="#" [class.disabled]="isExitDisabled" (click)="onExit()">
+          {{ 'UtilityLinkExit' | translate }}
+        </a>
+      </div>
+      
+      
+  </div>
+  

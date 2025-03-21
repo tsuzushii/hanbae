@@ -1,0 +1,564 @@
+﻿/**************************************************************************************/
+/** Styles for general layout containers                                             **/
+/**************************************************************************************/
+/** Clear styles **/
+html, body, form, div, span, table, td, th, ul, li, a, input, select, button, h1 { margin:0; padding:0; }
+html { 
+        overflow: auto; 
+}
+input::-moz-focus-inner /*Remove button padding in FF*/ { border: 0; padding: 0; }
+
+/* default padding for td */
+div#LowerArea div#ContentArea div.Content td { padding:1px; }
+/* Style for IE8 to add extra margin between radio/checkboxes and their labels */
+input[type="radio"], input[type="checkbox"]
+{
+    margin-right:5px;
+}
+
+/* Main layout div */
+div#MainLayout
+{
+	float:left;
+	height:700px; /* Set by javascript on resize */
+	width:100%;/*width:950px;  /* set by javascript on resize */
+}
+
+/* Header area styles */
+div#HeaderArea
+{
+	float:left;
+	height:115px;
+	min-height:115px;
+	width:100%;/*width:950px;    /* set by javascript on resize */
+}
+
+/* Util Bar Styles */
+div#HeaderArea div.UtilBar
+{
+	background-color:#7493C2;
+	border-bottom:solid 1px #000000;
+	height:20px;	
+	width:100%;
+}
+
+div#HeaderArea div.UtilBar div.UtilLinks
+{
+	padding-right:20px;
+	padding-top:2px;
+	text-align:right;
+	font-weight:bold;
+}
+
+div#HeaderArea div.UtilBar div.UtilLinks a,
+    div#HeaderArea div.UtilBar div.UtilLinks a:hover,
+	div#HeaderArea div.UtilBar div.UtilLinks a:visited,    
+	div#HeaderArea div.UtilBar div.UtilLinks a.Selected
+{
+	font-family: Arial;
+	Font-Size: 12px; 
+	font-style:normal;
+	color: #FFF;
+	text-decoration:none;
+}
+div#HeaderArea div.UtilBar div.UtilLinks a:hover { text-decoration:underline; }
+div#HeaderArea div.UtilBar div.UtilLinks a.Selected { font-style:italic; }
+
+ /*Start FIX 196951 - Infosys (I17528) : 06/10/2011*/
+div#HeaderArea div.UtilBar div.UtilLinks ul
+{
+	z-index:20;
+    display:none;
+    position:absolute;
+    border:solid 1px White;
+    width:125px;
+    list-style-type:none;
+    background-color:#7493C2;
+    text-align:left;   
+    padding: 1px 1px 1px 1px;        
+}
+div#HeaderArea div.UtilBar div.UtilLinks ul li
+{
+    display:block;
+    /*width:123px;*/
+    background-color:#7493C2;
+    height:20px;
+}
+div#HeaderArea div.UtilBar div.UtilLinks ul li a,
+    div#HeaderArea div.UtilBar div.UtilLinks ul li a:hover
+{
+    font: bold 12px Arial;
+    text-decoration:none;
+    display:block;
+    width:123px;
+    color:White;
+    cursor:pointer;
+    border:0px solid White;
+    padding:0px;
+    margin:0px;
+}
+div#HeaderArea div.UtilBar div.UtilLinks ul li a:hover
+{
+    border: 1px solid #99CC00;
+    padding: 0px;
+}
+/*End FIX 196951 - Infosys (I17528) : 06/10/2011*/
+
+div#HeaderArea div.UtilBar div.UtilLinks ul li a.disabled
+{
+    color:#BEBEBE;
+    cursor:default;
+}
+
+/* Logo Bar Styles */
+div#HeaderArea div.LogoBar
+{
+    height:80px;
+    padding-top:10px;    
+}
+div#HeaderArea div.LogoBar div.agimage
+{
+    width:170px;
+    text-align:center;    
+    float:left;
+    padding-left:30px;
+    height:70px;
+}
+div#HeaderArea div.LogoBar div.HeaderData
+{
+    float:left;
+    /*width:750px;    /* #HeaderArea.widht - agimage.width - agimage.padding - HeaderDate.margin */
+    margin:0 10px 0 10px;
+    display:inline;
+}
+
+/* Lower Area Styles */
+div#LowerArea
+{
+    float:left;
+    /*width:950px; /* Set by javascript on resize */
+    display:inline;
+    padding-bottom:5px;
+}
+
+div#LowerArea div#ContentArea
+{
+    float:left;
+    /*width:734px;    /* #HeaderArea.width - #SideNavigation.width - #SideNavigation.margin - #SideNavigation.border - #ContentArea.margin */
+    margin-left:10px;
+    margin-right:4px;   /* when setting margin-right:5px, IE6 will 'jump' the Toolbar */
+    display:inline;
+}
+div#LowerArea div#ContentArea h1,
+    div#LowerArea div#ContentArea h2
+{
+	 font-weight: bold;
+	 color: #036;
+	 font-size: 20px;	 
+	 border-bottom: #036 3px solid;    
+}    
+div#LowerArea div#ContentArea h1
+ {
+	 padding: 5px 0px 5px 0px;
+     margin-bottom:10px;
+ }
+div#LowerArea div#ContentArea h2
+{
+	font-size: 13px;
+	padding: 5px;
+	border-bottom-width:2px;
+}
+div#LowerArea div#ContentArea h1.disabled,
+    div#LowerArea div#ContentArea h2.disabled
+{
+    color:Gray;
+    border-color:Gray;
+}
+
+div#LowerArea div#ContentArea div.Content
+{
+    float:left;
+    overflow:auto;
+    overflow-x:hidden; /* horizontal overflow should be possible */    
+    padding-right:20px;
+    /*width:714px; /* #ContentArea.width - div.Content.padding */
+    display:inline;
+}
+
+/** Tabs **/
+div#LowerArea div#ContentArea div.TabbedSection
+{
+    margin-bottom:10px;
+    width:100%;
+    /*display:inline-block;*/
+    color:#000;
+}
+div#LowerArea div.Content.disabled div.TabbedSection
+{
+    color:Gray;
+}    
+div#LowerArea div#ContentArea div.TabTitleDiv
+{
+    color: #013366;
+	border-left: 1px solid #8C8C90;
+	border-bottom: 1px solid #8C8C90;
+	margin-bottom:-1px;
+}
+
+div#LowerArea div#ContentArea span.TabTitleSpan
+{
+	background: #FFFFEC;
+	font: normal bold 13px Arial;
+	vertical-align:bottom;
+	border-top: 1px solid #8C8C90;
+	border-right: 1px solid #8C8C90;
+	border-bottom: 3px solid #FFFFEC;	
+	padding: 5px 5px 0px 5px;
+   	width:305px;
+	margin-bottom:-3px;
+	text-decoration: none;
+	z-index:3;   
+	display:inline-block;     
+}
+
+div#LowerArea div.Content.disabled div.TabbedSection span.TabTitleSpan
+{
+    color: Gray;
+}
+
+div#LowerArea div#ContentArea span.TabTitleSpanSmall
+{
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+div#LowerArea div.Content div.TabContent
+{
+    text-align: left;
+	background: #FFFFEC !important;
+	margin-top:1px;
+	padding: 19px 20px 20px 20px;
+	border: 1px solid #8C8C90;
+	border-top:none;
+	z-index: 2;
+	color:#000;
+}
+
+div#LowerArea div#ContentArea div.TabbedSection.collapsed div.TabTitleDiv
+{
+    border:none;
+    margin-bottom:0;
+}
+div#LowerArea div#ContentArea div.TabbedSection.collapsed span.TabTitleSpan
+{
+    border:1px solid #8C8C90;
+    margin-bottom:0;
+}
+
+div#LowerArea div.Content.disabled div.TabbedSection,
+    div#LowerArea div.Content.disabled div.TabTitleDiv,
+    div#LowerArea div.Content.disabled div.TabbedSection div.TabContent
+{
+    color:Gray;
+}
+
+div#LowerArea div#ContentArea div.Content div#pdfDiv
+{
+    height:100%;
+    /*width:100%;*/
+    margin:10px 0px 0px 0px;
+    border:solid 1px gray;
+}
+div#LowerArea div#ContentArea div.Content div#pdfDiv iframe
+{
+    height:100%;
+    width:100%;
+}
+
+div#LowerArea div#ContentArea div#FamilisPremiumContainer
+{
+    float:left;
+    width:100%;
+    line-height:0;
+}
+div#LowerArea div#ContentArea div#FamilisPremiumContainer table
+{
+    line-height:14px;
+}
+
+.Sub_Titles
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #808080;
+	padding-bottom: 5px;
+}
+
+/******************************************************************************************/
+/** Styles for a table layout                                                            **/
+/******************************************************************************************/
+/** Styles for list and grid views **/
+table.generalTableStyle
+{
+    margin-bottom:10px;
+    margin-top:10px;
+}
+table.generalTableStyle.devexpress
+{
+    margin:0px;
+}
+
+table.generalTableStyle thead tr,
+    table.generalTableStyle tbody tr
+{ height:25px; }
+
+table.generalTableStyle thead th,
+    table.generalTableStyle.devexpress tbody td.tableHeaderStyle
+{
+	background-color: #7493C2;
+	font-weight: bold;
+	text-align: center;
+    border:none;
+	vertical-align:middle;
+	padding:0px 5px 0px 5px;
+}
+table.generalTableStyle thead th,
+    table.generalTableStyle thead th a
+{
+    color: #FEFEF9 !important;
+	text-decoration:none;
+}
+
+table.generalTableStyle tbody tr.alternateRow { background-color:#EBEBEB; }
+table.generalTableStyle tbody tr.hoverRow { background-color:#FCF6E1; }
+table.generalTableStyle tbody tr.disabledRow { color:Gray; }
+table.generalTableStyle tbody tr.selectedRow { background-color: #F6E9B6; color:#000; }
+
+
+
+table.generalTableStyle tbody tr.itembody td,
+table.generalTableStyle tbody tr.itembodyinner td.itembodyinner
+{
+	padding: 0px 5px 0px 5px;
+	border-bottom: solid 1px #8C8C90;
+	border-left: solid 1px #8C8C90;
+	vertical-align: middle;
+	text-align: center;
+	cursor: default;
+}
+
+
+table.generalTableStyle.listFormat tbody td,
+    table.generalTableStyle.devexpress tbody td.tableHeaderStyle
+{
+    border:none;
+}
+table.generalTableStyle tbody tr.hoverRow td
+{
+    cursor:pointer;
+}
+
+table.generalTableStyle tbody td.buttonColumn { text-align:center; }
+
+table.generalTableStyle tbody tr.itembody td.rightColumn,
+table.generalTableStyle tbody tr.itembodyinner td.rightColumn
+{ border-right:solid 1px #8C8C90; }
+
+table.generalTableStyle tbody td.alignRightColumn { text-align:right; }
+table.generalTableStyle tbody td.alignCenterColumn { text-align:center; }
+
+table.generalTableStyle tbody tr.expand td
+{
+   padding:5px 5px 5px 5px;
+   border: solid 2px #8C8C90;
+   border-top:solid 1px #8C8C90;
+   background-color: #FEFEF9;
+   vertical-align:middle;
+   text-align:left;
+   cursor: default;
+}
+table.generalTableStyle tbody tr.expand td table td
+{
+    border:none;
+    padding:0;
+    vertical-align:middle;
+    text-align:left;
+    cursor:default;
+}
+
+table.generalTableStyle thead div.paging
+{
+    font-size:11px;
+    text-align:right;
+    padding: 0px 5px 0px 5px;
+}
+table.generalTableStyle thead div a, table.generalTableStyle thead div span
+{
+    font-size:11px;
+    margin:0px 5px 0px 5px;
+    text-decoration:none;
+}
+
+table.generalTableStyle thead div.paging a.PrevLink
+{
+    border-right:solid 1px #000;
+    padding-right:5px;
+}
+
+table.generalTableStyle thead div.paging a.NextLink
+{
+    border-left: solid 1px #000;
+    padding-left:5px;
+}
+
+table.generalTableStyle thead div.paging span.Current_Page
+{
+    font-weight:bold;
+}
+
+/** Button List Pop-Up in Grid/List views **/
+table.generalTableStyle tbody tr td ul.ButtonList
+{
+    display:none;
+    position:absolute;
+    border:solid 1px #8C8C90;
+    width:88px;
+    list-style-type:none;
+    background-color:#FEFEF9;
+    text-align:left;
+}
+    
+table.generalTableStyle tbody tr td ul.ButtonList li
+{
+    display:block;
+    width:88px;
+    background-color:#FEFEF9;
+}
+    
+table.generalTableStyle tbody tr td ul.ButtonList li a
+{
+    font: normal 12px Arial;
+    text-decoration:none;
+    display:block;
+    width:74px;
+    color:#000;
+    cursor:pointer;
+    border:1px solid #FEFEF9;
+    padding:2px 5px 2px 5px;
+    margin:1px 1px 1px 1px;
+}
+table.generalTableStyle tbody tr td ul.ButtonList li a:hover,
+    table.generalTableStyle tbody tr td li.focused a
+{
+    background-color:#FFFFEC;
+    color:#000;
+    border:1px solid #99CC00;
+    text-decoration:none;
+}
+table.generalTableStyle tbody tr td ul.ButtonList li a.disabled
+{
+    color:#BEBEBE;
+    cursor:default;
+}
+table.generalTableStyle .paging
+{
+    font-size:11px;
+    text-align:right;
+    padding: 0px 5px 0px 5px;
+}
+table.generalTableStyle td.AmountColumn
+{
+    padding-right: 10px;
+    text-align: right;
+}
+.dxpPageNumber, .dxpButton
+{
+    font-size:11px;
+    margin:0px 5px 0px 5px;
+    text-decoration:none;
+}
+
+/**************************************************************/
+/** Message Box styles **/
+.MBGlobal
+{
+	font-family: Arial;
+	font-size: 12px;
+	background-color: #FEFEF9;
+	border-width: 2px;
+	border-color: #003366;
+}
+
+.MBTitleBar
+{
+	background-color: #003366;
+	font-family: Arial;
+	font-weight: bold;
+	color: #FEFEF9;
+	padding-left:10px;
+}
+
+.MBTextBox
+{
+	background-color: #FEFEF9;
+	font-size: 12px;
+	font-family: Arial;
+	color: Black;
+	text-align: center;
+}
+.MBButton
+{
+	font-family: Arial;
+	font-size: 12px;
+	color: Black;
+	font-weight: normal;
+	width: 90px;
+	cursor: hand;
+	height: 20px;
+	text-align: center;
+	background-color: #EBEBEB;
+}    
+
+.PdfDiv
+{
+    height:100%;
+    width:100%;
+    margin:10px 0px 0px 0px;
+    border:solid 1px gray;
+}
+/*.transp
+{
+/* 
+    filter: alpha(opacity=25);
+    opacity: .25;
+    z-index: 1200;
+    -ms-filter: alpha(opacity=25);
+    -ms-opacity: 0.25;
+*/
+/*z-index: 5;
+} */   
+
+.LabelRight
+{
+    padding-right: 10px;
+    text-align: right;    
+}
+.LabelLeft
+{
+    padding-right: 10px;
+    text-align: left;    
+}
+
+a[disabled]
+{
+   color:#b8babd !important;
+   text-decoration:none;
+   cursor: default !important;
+}
+
+a[disabled]:hover
+{
+    text-decoration: none !important;
+}

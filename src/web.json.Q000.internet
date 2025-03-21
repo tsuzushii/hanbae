@@ -1,0 +1,6 @@
+[
+  
+  { "key": "applicativeApiUrl", "value": "https://iservicesq.aginsurance.be/Services/{SentinetName}/v1/"},
+  { "key": "maintenanceApiUrl", "value": "https://iservicesq.aginsurance.be/Services/maintenancepage/api/v1/maintenance/GetMaintenanceStatus?Environment=Q000&Channel=INTERNET&Application=VIHCHEALTHCAREPARTICULIER2" }
+]
+  

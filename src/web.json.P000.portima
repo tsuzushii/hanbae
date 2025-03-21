@@ -1,0 +1,6 @@
+[
+  
+  { "key": "applicativeApiUrl", "value": "https://iservices.aginsurance.be/Services/{SentinetName}/v1/"},
+  { "key": "maintenanceApiUrl", "value": "https://iservices.aginsurance.be/Services/maintenancepage/api/v1/maintenance/GetMaintenanceStatus?Environment=P000&Channel=PORTIMA&Application=VIHCHEALTHCAREPARTICULIER2" }
+]
+  

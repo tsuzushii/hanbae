@@ -1,0 +1,6 @@
+[
+  { "key": "maintenanceApiUrl", "value": "https://iservices.aginsurance.be/Services/maintenancepage/api/v1/maintenance/GetMaintenanceStatus?Environment=P000&Channel=INTRANET&Application=VIHCHEALTHCAREPARTICULIER2" },
+  
+  { "key": "applicativeApiUrl", "value": "https://hchealthcareparticulier2p.aginsurance.intranet/VIHCHEALTHCAREPARTICULIER2/api/v1/"}
+]
+  

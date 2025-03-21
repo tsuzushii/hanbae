@@ -1,0 +1,27 @@
+﻿#cboxOverlay{background:#000;}
+
+#colorbox{background:#FFF;}
+    #cboxContent{margin-top:0px;}
+        #cboxLoadedContent{background:#fff; padding:0px;}
+        #cboxLoadingGraphic{background:url(../WebResources/HRHCLoading_FFFN.gif) no-repeat center center;}
+        #cboxLoadingOverlay{background:#fff;}
+        #cboxTitle{position:absolute; top:-18px; left:5px; color:#fff; font-weight:bold; font-size:14px; font-family:Arial;}
+        #cboxCurrent{position:absolute; top:-20px; right:205px; text-indent:-9999px;}
+        #cboxSlideshow, #cboxPrevious, #cboxNext {text-indent:-9999px; width:20px; height:20px; position:absolute; top:-20px; background:no-repeat 0 0;} /*url(../../images/default/agpopup/controls.png)*/
+        #cboxClose{text-indent:-9999px; width:15px; height:14px; position:absolute; top:-20px; display:none !important; right:5px; background:no-repeat 0 0 url("../WebResources/HRHCHelpClose.gif");} /*url(../../images/default/agpopup/close.png)*/
+        #cboxPrevious{background-position:0px 0px; right:44px;}
+        #cboxPrevious.hover{background-position:0px -25px;}
+        #cboxNext{background-position:-25px 0px; right:22px;}
+        #cboxNext.hover{background-position:-25px -25px;}
+        #cboxWrapper {border:1px solid #003163;}
+        .cboxSlideshow_on #cboxPrevious, .cboxSlideshow_off #cboxPrevious{right:66px;}
+        .cboxSlideshow_on #cboxSlideshow{background-position:-75px -25px; right:44px;}
+        .cboxSlideshow_on #cboxSlideshow.hover{background-position:-100px -25px;}
+        .cboxSlideshow_off #cboxSlideshow{background-position:-100px 0px; right:44px;}
+        .cboxSlideshow_off #cboxSlideshow.hover{background-position:-75px -25px;}
+        
+        #cboxTopCenter {background-color:#003163; height:20px;}
+        
+        #cboxBottomLeft, #cboxBottomCenter, #cboxBottomRight
+        /*div#cboxTopLeft, div#cboxTopRight, div#cboxMiddleLeft, div#cboxMiddleRight */
+        { display:none !important; }

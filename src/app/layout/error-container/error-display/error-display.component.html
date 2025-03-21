@@ -1,0 +1,40 @@
+<div id="ErrorDisplayMaster_NotifPanel" class="ED_SummaryDiv" style="width:100%;vertical-align:text-top;overflow:auto;" [style.height]="maximumHeight + 'px'">
+  <table id="ErrorDisplayMaster_NotifTable" class="ED_SummaryDiv" style="vertical-align:text-top;padding:0px;border-collapse:collapse;width:auto;">
+    <tbody>
+      @for (notification of notifications; track notification.controlId) {
+        <tr (click)="onRowClick(notification.controlId, $event)">
+          
+          <!-- Severity Icon Cell -->
+          <td style="width:10px;" [style.vertical-align]="iconVerticalAlignment.toLowerCase()">
+            <img [src]="getIconUrl(notification.severity)" style="border-width:0px;">
+          </td>
+          
+          <!-- View Detail Cell (optional) -->
+          @if (showDetail && notification.longMessage && notification.longMessage !== notification.shortMessage) {
+            <td style="width:10px;" 
+                [style.vertical-align]="iconVerticalAlignment.toLowerCase()"
+                class="ClickableCell"
+                (click)="showLongMessage(notification.longMessage, $event)">
+              <img src="assets/images/view-detail.png">
+            </td>
+          }
+          
+          <!-- Codotheque ID Cell -->
+          @if (showCodothequeId && notification.codothequeId) {
+            <td style="width:40px;" 
+                [style.vertical-align]="iconVerticalAlignment.toLowerCase()">
+              <span [class]="getCodothequeClass(notification.severity)">{{ notification.codothequeId }}</span>
+            </td>
+          }
+          
+          <!-- Message Cell -->
+          <td [style.vertical-align]="iconVerticalAlignment.toLowerCase()">
+            <span [class]="getMessageClass(notification.severity, !!notification.controlId)">
+              {{ showLongMessageInSummary && notification.longMessage ? notification.longMessage : notification.shortMessage }}
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

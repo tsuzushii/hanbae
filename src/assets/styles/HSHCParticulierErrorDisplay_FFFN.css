@@ -1,0 +1,168 @@
+﻿div#ErrorContainer { float:left; display:inline; width:100%; margin-top:5px; }
+div#ErrorContainer div.ErrorInfoMessages { height:15px; font-size:11px; }
+div#ErrorContainer div.ErrorInfoMessages span.asterisk { width: 30px; text-align: right; display:inline-block;}
+div#ErrorContainer div.ErrorDisplay  
+{
+	font-family: Arial;
+	font-size: 12px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+	background-color: #FEFEF9;
+}
+.ED_SummaryDiv .ED_MessageErrorLinkedControl
+{
+    color: Red;
+}
+.EDHeader, .EDBody
+{
+    /*margin:2px 2px 2px 2px;*/
+    border:solid 2px #FFF;    
+}
+.EDHeader
+{
+    height:20px;
+    background-color:#D7E4F6;
+    font-weight:bold;
+    color:#003366;
+    text-align:center;
+    display:block;
+}
+
+.EDBody { height:70px; }
+
+.EDSummaryGlobal
+{
+	background-color: #FEFEF9;
+	border-color: #E2B838;
+	border-width: 2px;
+}
+
+.EDErrorCode
+{
+	color: Red;
+	font-weight: bold;
+	font-family: Courier New;
+}
+.EDWarningCode
+{
+	color: Blue;
+	font-weight: bold;
+	font-family: Courier New;
+}
+.EDNotificationCode
+{
+	color: Green;
+	font-weight: bold;
+	font-family: Courier New;
+}
+.EDSysErrorCode
+{
+	color: Red;
+	font-weight: bold;
+	font-family: Courier New;
+}
+.EDDetailGlobal
+{
+	font-family: Arial;
+	font-size: 12px;
+}
+.EDDetailContainer
+{
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E2B838;
+	background-color: #E2B838;
+}
+.EDDetailContent
+{
+	background-color: #FEFEF9;
+}
+.EDDetailDescription
+{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+	background-color: #FEFEF9;
+}
+.EDDetailStacktrace
+{
+	font-size: 11px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d5e4ef;
+	background-color: #FEFEF9;
+	color: #9DB9EB;
+}
+
+.LabelErrorLinkedControl
+{
+	cursor:pointer;
+	text-decoration: underline;
+	color:Red;
+}
+
+.ED_WarningButtonsDiv
+{
+	color: Black;
+	font-style: normal;
+	overflow: auto;
+	width: 100%;
+	padding-bottom: 5px;
+}
+.ED_WarningButtonsDiv .WarningButtons
+{
+	color: Black;
+	font-weight: normal;
+	width: 90px;
+	cursor: pointer;
+	height: 20px;
+	text-align: center;
+	background-color: #EBEBEB;
+	border: #83ACC7 1px solid;
+}
+
+.ED_SummaryDiv
+{
+	color: Black;
+	font-style: normal;
+	overflow: auto;	
+	width: 100%;
+	padding-bottom: 5px;
+}
+.ED_SummaryDiv .LabelError
+{
+	font-style: normal;
+}
+.ED_SummaryDiv .ED_MessageError,
+    .ED_SummaryDiv .CodothequeLabelError
+{
+    color: Red;
+}
+.ED_SummaryDiv .ED_MessageWarning,
+    .ED_SummaryDiv .ED_MessageNotification,
+    .ED_SummaryDiv .CodothequeLabelWarning,
+    .ED_SummaryDiv .CodothequeLabelNotification    
+{
+    color: black;
+}
+.ED_SummaryDiv .CodothequeLabelError,
+    .ED_SummaryDiv .CodothequeLabelWarning,
+    .ED_SummaryDiv .CodothequeLabelNotification
+{
+	font-weight: bold;
+	font-style: normal;
+}
+.ED_DetailPopup, .ED_WarningPopup
+{
+	width: 500px;
+	height: 150px;
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	color: Black;
+	overflow: auto;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #E2B838;
+}

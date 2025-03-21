@@ -1,0 +1,38 @@
+<!-- error-container.component.html -->
+<div id="ErrorContainer" >
+    <!-- Error info messages -->
+    <div id="ObligatedFieldsMessage" class="ErrorInfoMessages" >
+      <span class="asterisk">* :&nbsp;</span>
+      <span id="LabelChampsObligatoires"></span>
+    </div>
+    
+    <!-- <div id="ParAuthMessage" class="ErrorInfoMessages" >
+      <span class="asterisk">(**) :&nbsp;</span>
+      <span id="LabelParAuth"></span>
+    </div>
+    
+    <div id="ParAuthMessageForCar" class="ErrorInfoMessages" >
+      <span class="asterisk">(**) :&nbsp;</span>
+      <span id="LabelParAuthForAuto"></span>
+    </div> -->
+    
+    <!-- Error Display container -->
+    <div class="ErrorDisplay">
+      <div class="EDHeader">
+        <span id="LabelErrorHeader">{{ 'LabelErrorHeader.Text' | translate }}</span>
+      </div>
+      <div class="EDBody">
+        <div id="UpdateErrorAsync">
+          <ag-error-display
+          [showDetail]="false"
+          [showCodothequeId]="true"
+          [showLongMessageInSummary]="false"
+          [iconVerticalAlignment]="'Top'"
+          [verticalSizing]="'Fixed'"
+          [maximumHeight]="68"
+          >
+          </ag-error-display>
+        </div>
+      </div>
+    </div>
+  </div>

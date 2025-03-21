@@ -1,0 +1,162 @@
+﻿/*********************************************************************************/
+/** ToolBar Styles                                                              **/
+/*********************************************************************************/
+
+div.ToolBar
+{
+	background-color: #FEFEF9;
+	border:1px solid #9C0;
+	padding: 5px 5px 5px 5px;
+}
+
+/* Image buttons styles */
+div.ToolBar span.ImgBtnBorder
+{
+	border: 1px solid #FEFEF9;
+	display:block;
+	width:100px;
+}
+
+div.ToolBar span.ImgBtnBorderCancel
+{
+	border: 1px solid #FEFEF9;
+	display:block;
+	width:185px;
+}
+
+/* Default button styles */
+div.ToolBar input.ImgBtn
+{
+	font: normal 12px Arial;
+	color: #000000;
+	width: 100px;
+	height: 25px;
+	cursor: pointer;
+	text-align: left;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: Transparent;
+	background-position: left center;
+	margin: 0;
+	padding: 0px 5px 0px 25px;
+}
+
+div.ToolBar input.ImgBtnSave { background-image: url("../../assets/WebResources/HRHCSave.gif"); }
+div.ToolBar input.ImgBtnPrint { background-image: url("../../assets/WebResources/HRHCPrint.gif"); }
+div.ToolBar input.ImgBtnConfirm { background-image: url("../../assets/WebResources/HRHCConfirm.gif"); }
+div.ToolBar input.ImgBtnPrevious { background-image: url("../../assets/WebResources/HRHCPrevious.gif"); }
+div.ToolBar input.ImgBtnQuitAM
+{
+	width: 185px;
+	background-image: url('../../assets/WebResources/HRHCNotOkBig.gif');
+}
+div.ToolBar input.ImgBtnOk { background-image: url("../../assets/WebResources/HRHCOkBig.gif"); }
+div.ToolBar input.ImgBtnNext
+{
+	background-image: url("../../assets/WebResources/HRHCNext.gif");
+	background-position: right center;
+	text-align: right;
+	padding: 0px 35px 0px 0px;
+}
+/* div.ToolBar input.ImgBlockBack  
+{
+	background-image: url("../../assets/WebResources/HRHCBlockBack.gif");
+	width: 165px;
+} */
+div.ToolBar input.ImgBtnInfo { background-image: url("../../assets/WebResources/HRHCInfo.gif"); }
+/*
+ div.ToolBar input.ImgBtnInstantVal { background-image: url("../../assets/WebResources/HRHCInstantVal.gif"); }
+div.ToolBar input.ImgBtnValWithChange {	background-image: url("../../assets/WebResources/HRHCTool.png"); }
+div.ToolBar input.ImgBtnValidate { background-image: url("../../assets/WebResources/HRHCHeart.png"); }
+div.ToolBar input.ImgBtnInvalidate { background-image: url("../../assets/WebResources/HRHCLightning.png"); }
+div.ToolBar input.ImgBtnRefuse { background-image: url("../../assets/WebResources/HRHCStop.png"); } */
+
+div.ToolBar div.expand span.ImgBtnBorder { border: 1px solid #99CC00; position:relative; border-bottom:1px solid #FEFEF9; z-index:50000; }
+
+/* Hover styles */
+div.ToolBar span.ImgBtnBorder.hover { border: 1px solid #99CC00; background-color: #FFFFCC; }
+div.ToolBar span.ImgBtnBorderCancel.hover { border: 1px solid #99CC00; background-color: #FFFFCC; }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnSave { background-image: url("../../assets/WebResources/HRHCSaveHoover.gif"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnPrint { background-image: url("../../assets/WebResources/HRHCPrintHoover.gif"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnConfirm { background-image: url("../../assets/WebResources/HRHCConfirmHoover.gif"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnPrevious { background-image: url("../../assets/WebResources/HRHCPreviousHoover.gif"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnNext { background-image: url("../../assets/WebResources/HRHCNextHoover.gif"); }
+div.ToolBar span.ImgBtnBorderCancel.hover input.ImgBtnQuitAM { background-image: url("../../assets/WebResources/HRHCNotOkHooverBig.gif"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnOk { background-image: url("../../assets/WebResources/HRHCOkHooverBig.gif"); }
+
+/* div.ToolBar span.ImgBtnBorder.hover input.ImgBtnValWithChange { background-image: url("../../assets/WebResources/HRHCToolHoover.png"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnValidate { background-image: url("../../assets/WebResources/HRHCHeartHoover.png"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnInvalidate { background-image: url("../../assets/WebResources/HRHCLightningHoover.png"); }
+div.ToolBar span.ImgBtnBorder.hover input.ImgBtnRefuse { background-image: url("../../assets/WebResources/HRHCStopHoover.png"); } */
+
+
+/* Disabled styles */
+div.ToolBar.disabled input.ImgBtn,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtn { cursor:default; color:#CECECE; }
+div.ToolBar.disabled input.ImgBtnSave,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnSave { background-image: url("../../assets/WebResources/HRHCSaveDisabled.gif"); }
+div.ToolBar.disabled input.ImgBtnPrint,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnPrint { background-image: url("../../assets/WebResources/HRHCPrintDisabled.gif"); }
+div.ToolBar.disabled input.ImgBtnConfirm,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnConfirm { background-image: url("../../assets/WebResources/HRHCConfirmDisabled.gif"); }
+div.ToolBar.disabled input.ImgBtnPrevious,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnPrevious { background-image: url("../../assets/WebResources/HRHCPreviousDisabled.gif"); }
+div.ToolBar.disabled input.ImgBtnNext,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnNext { background-image: url("../../assets/WebResources/HRHCNextDisabled.gif"); }
+div.ToolBar.disabled input.ImgBtnInfo,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnInfo { background-image: url("../../assets/WebResources/HRHCInfoDisabled.gif"); }
+/* div.ToolBar.disabled input.ImgBtnInstantVal,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnInstantVal { background-image: url("../../assets/WebResources/HRHCInstantValDisabled.gif"); } */
+
+/* div.ToolBar.disabled input.ImgBtnValWithChange,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnValWithChange { background-image: url("../../assets/WebResources/HRHCToolDisabled.png"); } */
+/* div.ToolBar.disabled input.ImgBtnValidate,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnValidate { background-image: url("../../assets/WebResources/HRHCHeartDisabled.png"); } */
+/* div.ToolBar.disabled input.ImgBtnInvalidate,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnInvalidate { background-image: url("../../assets/WebResources/HRHCLightningDisabled.png"); } */
+/* div.ToolBar.disabled input.ImgBtnRefuse,
+	div.ToolBar span.ImgBtnBorder.disabled input.ImgBtnRefuse { background-image: url("../../assets/WebResources/HRHCStopDisabled.png"); } */
+
+div.ToolBar .navigationButtonsDevider { border-left: 1px solid #99CC00; }
+
+/* DropDownList */
+div.ToolBar ul.ActionsList
+{
+	display:none;
+	position:absolute;
+	border:solid 1px #9C0;
+	margin:0;
+	margin-top:-1px;
+	padding:0;
+	list-style-type:none;
+	background-color:#FEFEF9;
+	z-index:12000;
+	width: 270px;
+}
+div.ToolBar ul.ActionsList li
+{
+	padding:2px 5px 2px 5px;
+	display:block;
+}
+div.ToolBar ul.ActionsList li a
+{
+	font: normal 12px Arial;
+	text-decoration:none;
+	display:block;
+	width:100%;
+	color:#000;
+	cursor:pointer;
+	border:1px solid #FEFEF9;
+}
+div.ToolBar ul.ActionsList li a:hover
+{
+	border:1px solid #99CC00;
+	/* background-image:url("../../assets/WebResources/HRHCDropDownMenuBg.gif"); */
+	background-repeat:repeat-x;
+}
+div.ToolBar ul.ActionsList li a.disabled
+{
+	color:#BEBEBE;
+	cursor:default;
+}
+
