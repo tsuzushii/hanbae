@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { ApplicationRef, Injectable } from '@angular/core';
 
+import { HeaderItem } from '../../layout/header/models/header.types';
 import { ToolBarButton } from '../../layout/toolbar/models/toolbar.types';
 import { ToolbarService } from '../../layout/toolbar/services/toolbar.service';
-import { HeaderItem } from '../../layout/header/models/header.types';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,9 @@ export class LayoutService {
 
   // Treeview Scroll Object
   treeviewScrollObject: any = null; // Placeholder for actual treeview object
-  constructor(private toolbarService: ToolbarService) {  }
+  constructor(private readonly toolbarService: ToolbarService,
+    private readonly appRef: ApplicationRef) {}
+
   public configureToolbar(): void {
     // Set which buttons are visible
     this.toolbarService.setVisible(ToolBarButton.Next, true);
@@ -309,9 +311,11 @@ public loadHeaderData(headerCollection: HeaderItem[]): void {
       link.addEventListener('click', event => event.preventDefault());
     });
   }
+  // Update these methods in your layout.service.ts file
+
   public hoverToolBarButtonEvent(): void {
-    // Initial check
-    this.attachHoverEvents();
+    // Initial check - run immediately when the component is loaded
+    setTimeout(() => this.attachHoverEvents(), 0);
     
     // Set up a MutationObserver to detect when toolbar buttons are added to DOM
     const observer = new MutationObserver((mutations) => {
@@ -327,7 +331,7 @@ public loadHeaderData(headerCollection: HeaderItem[]): void {
           });
           
           if (hasButtons) {
-            this.attachHoverEvents();
+            setTimeout(() => this.attachHoverEvents(), 0);
             break;
           }
         }
@@ -340,17 +344,32 @@ public loadHeaderData(headerCollection: HeaderItem[]): void {
       subtree: true 
     });
   }
-  
+
   private attachHoverEvents(): void {
-    const buttons = document.querySelectorAll('.ToolBar .ImgBtn:not([disabled])');
-    buttons.forEach(button => {
+    // First handle the initial rendering for all buttons
+    const allButtons = document.querySelectorAll('.ToolBar .ImgBtn');
+    allButtons.forEach(button => {
+      // Force initial state rendering for all buttons - to ensure translation is visible
+      button.parentElement?.classList.add('initial-render');
+      // Remove class after a short delay
+      setTimeout(() => {
+        button.parentElement?.classList.remove('initial-render');
+      }, 50);
+    });
+    
+    // Then attach hover events only to enabled buttons
+    const enabledButtons = document.querySelectorAll('.ToolBar .ImgBtn:not([disabled])');
+    enabledButtons.forEach(button => {
       // Skip buttons that already have event handlers attached
       if ((button as any)._hoverEventsAttached) {
         return;
       }
       
       const mouseEnterHandler = () => {
-        button.parentElement?.classList.add(this.CSS_HOVER);
+        // Only add hover if button is not disabled
+        if (!button.hasAttribute('disabled')) {
+          button.parentElement?.classList.add(this.CSS_HOVER);
+        }
       };
       
       const mouseLeaveHandler = () => {
@@ -374,6 +393,67 @@ public loadHeaderData(headerCollection: HeaderItem[]): void {
         mouseleave: mouseLeaveHandler,
         blur: blurHandler
       };
+    });
+    
+    // Add mutation observer for disabled state changes
+    this.observeDisabledChanges();
+  }
+  private observeDisabledChanges(): void {
+    // This will observe changes to the disabled attribute and update hover behavior
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(mutation => {
+        if (mutation.type === 'attributes' && 
+            mutation.attributeName === 'disabled' && 
+            mutation.target instanceof HTMLElement) {
+          
+          const button = mutation.target;
+          
+          // If button became disabled, remove hover class
+          if (button.hasAttribute('disabled')) {
+            button.parentElement?.classList.remove(this.CSS_HOVER);
+            
+            // Remove existing event handlers if any
+            if ((button as any)._eventHandlers) {
+              button.removeEventListener('mouseenter', (button as any)._eventHandlers.mouseenter);
+              button.removeEventListener('mouseleave', (button as any)._eventHandlers.mouseleave);
+              button.removeEventListener('blur', (button as any)._eventHandlers.blur);
+              (button as any)._hoverEventsAttached = false;
+            }
+          } 
+          // If button became enabled, add hover handlers if not already present
+          else if (!(button as any)._hoverEventsAttached) {
+            const mouseEnterHandler = () => {
+              if (!button.hasAttribute('disabled')) {
+                button.parentElement?.classList.add(this.CSS_HOVER);
+              }
+            };
+            
+            const mouseLeaveHandler = () => {
+              button.parentElement?.classList.remove(this.CSS_HOVER);
+            };
+            
+            const blurHandler = () => {
+              button.parentElement?.classList.remove(this.CSS_HOVER); 
+            };
+            
+            button.addEventListener('mouseenter', mouseEnterHandler);
+            button.addEventListener('mouseleave', mouseLeaveHandler);
+            button.addEventListener('blur', blurHandler);
+            
+            (button as any)._hoverEventsAttached = true;
+            (button as any)._eventHandlers = {
+              mouseenter: mouseEnterHandler,
+              mouseleave: mouseLeaveHandler,
+              blur: blurHandler
+            };
+          }
+        }
+      });
+    });
+    
+    // Observe all toolbar buttons for disabled attribute changes
+    document.querySelectorAll('.ToolBar .ImgBtn').forEach(button => {
+      observer.observe(button, { attributes: true, attributeFilter: ['disabled'] });
     });
   }
   public expandButtonClickEvents(): void {

@@ -7,19 +7,19 @@
     </div>
     <div class="TabContent">
       <div id="AddInsuredDiv" class="AddDiv">
-
-        <input type="submit" name="ButtonNewInsured" value="{{'ButtonNewInsured.Text' | translate}}"
+        <!-- New Insured Button -->
+        <input type="button" name="ButtonNewInsured" value="{{'ButtonNewInsured.Text' | translate}}"
           id="ButtonNewInsured" class="button" style="width:125px;" (click)="buttonNewInsuredClick()">
         <div style="display: none">
-          <input type="submit" name="ButtonHide" value="Hide" id="ButtonHide" class="button cboxElement"
+          <input type="button" name="ButtonHide" value="Hide" id="ButtonHide" class="button cboxElement"
             style="width:125px;">
-          <input type="submit" name="ButtonRetrunPortal" value="Hide" id="ButtonRetrunPortal" class="button"
+          <input type="button" name="ButtonRetrunPortal" value="Hide" id="ButtonRetrunPortal" class="button"
             style="width:125px;">
         </div>
         <span id="UpdatePanelSavePrint"></span>
-
       </div>
 
+      <!-- Insured Persons Table -->
       <table id="InsuredTable" width="100%" class="generalTableStyle notHoverable" cellpadding="0" cellspacing="0">
         <thead>
           <tr>
@@ -48,103 +48,122 @@
               {{'IvnHeaderBankDomiciliation' | translate}}
             </th>
             <th style="width: 10%">
-
             </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr class="itembody">
-            <td style="text-align: center">
-              <input type="hidden" name="txtAssureNumber" id="txtAssureNumber" value="0">
-              <input type="hidden" name="hfNewAssure" id="hfNewAssure" value="1">
-              <ag-smart-textbox formControlName="firstName" id="TextBoxFirstName"  cssClass="inputFields mandatory" [maxLength]="20"
-              ValidCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
-            </ag-smart-textbox>
-            </td>
-            <td style="text-align: center">
-              <select name="ddlSex" id="ddlSex" class="inputFields mandatory">
-                <option selected="selected" value="0"></option>
-                <option value="1">{{'LabelMale.Text' | translate }}</option>
-                <option value="2">{{'LabelFemale.Text' | translate}}</option>
+          <!-- Loop through insured persons using @for directive -->
+          @for (insured of insuredPersons; track insured.assuredNumber; let i = $index) {
+            <tr class="itembody">
+              <td style="text-align: center">
+                <input type="hidden" [name]="'txtAssureNumber' + i" [id]="'txtAssureNumber' + i" [value]="insured.assuredNumber">
+                <input type="hidden" [name]="'hfNewAssure' + i" [id]="'hfNewAssure' + i" [value]="insured.newAssure">
+                <ag-smart-textbox [(ngModel)]="insured.firstName" [ngModelOptions]="{standalone: true}" 
+                  [id]="'TextBoxFirstName' + i" cssClass="inputFields mandatory" [maxLength]="20"
+                  ValidCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
+                </ag-smart-textbox>
+              </td>
+              <td style="text-align: center">
+                <select [name]="'ddlSex' + i" [id]="'ddlSex' + i" [(ngModel)]="insured.gender" [ngModelOptions]="{standalone: true}" 
+                  class="inputFields mandatory">
+                  <option [value]="0"></option>
+                  <option [value]="1">{{'LabelMale.Text' | translate}}</option>
+                  <option [value]="2">{{'LabelFemale.Text' | translate}}</option>
+                </select>
+              </td>
+              <td style="text-align: center">
+                <!-- Date control - would be replaced with proper date component -->
+                <div [id]="'UCDateOfBirth_DatePanel' + i">
+                  <span class="DC_DateControl" [id]="'UCDateOfBirth_datecontrol' + i">
+                    <input type="text" maxlength="2" [id]="'UCDateOfBirth_datecontrol_DayBox' + i"
+                      class="inputFields mandatory DC_DateBox DC_DayBox" style="width:22px;vertical-align:middle;">
+                    <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span>
+                    <input type="text" maxlength="2" [id]="'UCDateOfBirth_datecontrol_MonthBox' + i"
+                      class="inputFields mandatory DC_DateBox DC_MonthBox" style="width:22px;vertical-align:middle;">
+                    <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span>
+                    <input type="text" maxlength="4" [id]="'UCDateOfBirth_datecontrol_YearBox' + i"
+                      class="inputFields mandatory DC_DateBox DC_YearBox" style="width:44px;vertical-align:middle;">
+                  </span>
+                </div>
+              </td>
+              <td style="text-align: center">
+                <ag-smart-textbox [(ngModel)]="insured.postalCode" [ngModelOptions]="{standalone: true}" 
+                  [textMode]="'SingleLine'" width="50px" cssClass="inputFields mandatory" 
+                  [id]="'TextBoxPostalCode' + i" [maxLength]="4"
+                  validCharacterValues="48-57">
+                </ag-smart-textbox>
+              </td>
+              <td style="text-align: center">
+                <ag-codotheque-dropdown-list [(ngModel)]="insured.mutualType" [ngModelOptions]="{standalone: true}" 
+                  [mockData]="mutuelleLabels" [displayField]="2"
+                  cssClass="inputFields mandatory" attribute="AT3AHC1CMUT" [sortDirection]="1" [sortField]="1"
+                  [showValues]="'01'" [labelLength]="3" [id]="'ddlMutuelle' + i">
+                </ag-codotheque-dropdown-list>
+              </td>
+              <td style="text-align: center">
+                <ag-codotheque-dropdown-list [(ngModel)]="insured.coverType" [ngModelOptions]="{standalone: true}" 
+                  [mockData]="coverLabels" [displayField]="2" cssClass="inputFields mandatory"
+                  attribute="IWHCCOUV" [sortDirection]="1" [sortField]="1" [showValues]="'1,2'" [labelLength]="3"
+                  [id]="'ddlCover' + i">
+                </ag-codotheque-dropdown-list>
+              </td>
+              <td style="text-align: center">
+                <select [name]="'ddlRelation' + i" [id]="'ddlRelation' + i" [(ngModel)]="insured.relationNumber" 
+                  [ngModelOptions]="{standalone: true}" class="inputFields mandatory"
+                  [style.display]="i === 0 ? 'none' :  'inline-block' "
+                  [disabled]="i === 0">
+                  <option [value]="0"></option>
+                  <option [value]="1">{{'LabelCcb.Text' | translate}}</option>
+                  <option [value]="2">{{'LabelFis.Text' | translate}}</option>
+                  <option [value]="3">{{'LabelEnf.Text' | translate}}</option>
+                  <option [value]="4">{{'LabelPer.Text' | translate}}</option>
+                  <option [value]="5">{{'LabelGrdPae.Text' | translate}}</option>
+                  <option [value]="6">{{'LabelFrr.Text' | translate}}</option>
+                  <option [value]="7">{{'LabelAue.Text' | translate}}</option>
+                </select>
+              </td>
+              <td style="text-align: center">
+                <select [name]="'ddlDomiciliation' + i" [id]="'ddlDomiciliation' + i" [(ngModel)]="insured.isPaymentBankDomiciliation" 
+                  [ngModelOptions]="{standalone: true}" class="inputFields mandatory"t
+                  [style.display]="i === 0 ?  'inline-block' : 'none'  "
+                  [disabled]="i !== 0">
+                  <option [value]="0"></option>
+                  <option [value]="1">{{'LabelYes.Text' | translate}}</option>
+                  <option [value]="2">{{'LabelNo.Text' | translate}}</option>
+                </select>
+              </td>
+              <td class="rightColumn">
+                <!-- Delete button -->
+                <a [id]="'ButtonDelete' + i" (click)="deleteInsured(i)">{{'ButtonDelete' | translate}}</a>
+              </td>
+            </tr>
+          }
 
-              </select>
-            </td>
-            <td style="text-align: center">
-              <!-- TODO(Anas) trasnform date3 custom control -->
-              <div id="UCDateOfBirth_DatePanel">
-
-                <span class="DC_DateControl" id="UCDateOfBirth_datecontrol"><input
-                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$DayBox" type="text" maxlength="2"
-                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_DayBox"
-                    class="inputFields mandatory DC_DateBox DC_DayBox" style="width:22px;vertical-align:middle;"><span
-                    style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span><input
-                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$MonthBox" type="text" maxlength="2"
-                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_MonthBox"
-                    class="inputFields mandatory DC_DateBox DC_MonthBox" style="width:22px;vertical-align:middle;"><span
-                    style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span><input
-                    name="ListInsured$ctrl0$UCDateOfBirth$datecontrol$YearBox" type="text" maxlength="4"
-                    id="ListInsured_ctrl0_UCDateOfBirth_datecontrol_YearBox"
-                    class="inputFields mandatory DC_DateBox DC_YearBox"
-                    style="width:44px;vertical-align:middle;"></span>
-
-              </div>
-
-            </td>
-            <td style="text-align: center">
-              <ag-smart-textbox formControlName="TextBoxPostalCode" [textMode]="'SingleLine'" width="50px" cssClass="inputFields mandatory" id="TextBoxPostalCode" [maxLength]="4"
-              validCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
-            </ag-smart-textbox>
-            </td>
-            <td style="text-align: center">
-              <ag-codotheque-dropdown-list formControlName="mutuelle" [mockData]="mutuelleLabels" [displayField]="2"
-                cssClass="inputFields mandatory" attribute="AT3AHC1CMUT" [sortDirection]="1" [sortField]="1"
-                [showValues]="'01'" [labelLength]="3" id="ddlMutuelle">
-              </ag-codotheque-dropdown-list>
-
-            </td>
-            <td style="text-align: center">
-              <ag-codotheque-dropdown-list formControlName="cover" [mockData]="coverLabels" [displayField]="2" cssClass="inputFields mandatory"
-                attribute="IWHCCOUV" [sortDirection]="1" [sortField]="1" [showValues]="'1,2'" [labelLength]="3"
-                id="ddlCover">
-              </ag-codotheque-dropdown-list>
-            </td>
-            <td style="text-align: center">
-              <select name="ddlRelation" id="ddlRelation" class="inputFields mandatory" style="display: none"
-                disabled="">
-                <option selected="selected" value="0"></option>
-                <option value="1">{{'LabelCcb' | translate}}</option>
-                <option value="2">{{'LabelFis' | translate}}</option>
-                <option value="3">{{'LabelEnf' | translate}}</option>
-                <option value="4">{{'LabelPer' | translate}}</option>
-                <option value="5">{{'LabelGrdPae' | translate}}</option>
-                <option value="6">{{'LabelFrr' | translate}}</option>
-                <option value="7">{{'LabelAue' | translate}}</option>
-
-              </select>
-            </td>
-            <td style="text-align: center">
-              <select name="ddlDomiciliation" id="ddlDomiciliation" class="inputFields mandatory">
-                <option selected="selected" value="0"></option>
-                <option value="1">{{'LabelYes.Text' | translate}}</option>
-                <option value="2">{{'LabelNo.Text' | translate}}</option>                
-                <!-- <option value="1"> Ja </option>
-                <option value="2">Nee</option> -->
-              </select>
-
-            </td>
-            <td class="rightColumn">
-              <a id="ButtonDelete" (click)="deleteInsured()">{{'ButtonDelete' | translate}}</a>
-
-            </td>
-          </tr>
-
+          <!-- Empty state message if no insured persons - using @if directive -->
+          @if (insuredPersons.length === 0) {
+            <tr>
+              <td colspan="9" style="text-align: center; padding: 20px;">
+                No insured persons. Click "New Insured" to add one.
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
 
+      <!-- Medical acceptance popup using @if directive -->
+      @if (showPopupAcceptationMedical) {
+        <div id="PopupAcceptationMedical" class="popup-overlay">
+          <div class="popup-content">
+            <!-- Popup content would go here -->
+            <h3>Medical Acceptation</h3>
+            <p>Please review and accept the medical terms.</p>
+            <div class="button-group">
+              <button (click)="showPopupAcceptationMedical = false">Close</button>
+            </div>
+          </div>
+        </div>
+      }
     </div>
   </div>
- 
-
-
 </form>
