@@ -61,7 +61,7 @@
                 <input type="hidden" [name]="'hfNewAssure' + i" [id]="'hfNewAssure' + i" [value]="insured.newAssure">
                 <ag-smart-textbox [(ngModel)]="insured.firstName" [ngModelOptions]="{standalone: true}" 
                   [id]="'TextBoxFirstName' + i" cssClass="inputFields mandatory" [maxLength]="20"
-                  ValidCharacterValues="32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252">
+                  ValidCharacterValues="'32,39,45,65-90,97-122,224,226,228,231-235,238,239,242,244,246,249,251,252'">
                 </ag-smart-textbox>
               </td>
               <td style="text-align: center">
@@ -74,18 +74,15 @@
               </td>
               <td style="text-align: center">
                 <!-- Date control - would be replaced with proper date component -->
-                <div [id]="'UCDateOfBirth_DatePanel' + i">
-                  <span class="DC_DateControl" [id]="'UCDateOfBirth_datecontrol' + i">
-                    <input type="text" maxlength="2" [id]="'UCDateOfBirth_datecontrol_DayBox' + i"
-                      class="inputFields mandatory DC_DateBox DC_DayBox" style="width:22px;vertical-align:middle;">
-                    <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span>
-                    <input type="text" maxlength="2" [id]="'UCDateOfBirth_datecontrol_MonthBox' + i"
-                      class="inputFields mandatory DC_DateBox DC_MonthBox" style="width:22px;vertical-align:middle;">
-                    <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">/</span>
-                    <input type="text" maxlength="4" [id]="'UCDateOfBirth_datecontrol_YearBox' + i"
-                      class="inputFields mandatory DC_DateBox DC_YearBox" style="width:44px;vertical-align:middle;">
-                  </span>
-                </div>
+                <ag-date 
+                  [id]="'UCDateOfBirth' + i"
+                  [(ngModel)]="insured.dateOfBirth" 
+                  [ngModelOptions]="{standalone: true}"
+                  [pivotYear]="49"
+                  [allowCalendar]="false"
+                  cssClass="inputFields mandatory"
+                  (textChanged)="onDateChanged(i, $event)">
+                </ag-date>
               </td>
               <td style="text-align: center">
                 <ag-smart-textbox [(ngModel)]="insured.postalCode" [ngModelOptions]="{standalone: true}" 

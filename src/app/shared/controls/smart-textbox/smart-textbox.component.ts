@@ -1,6 +1,7 @@
+// smart-textbox.component.ts
 import { NgClass } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild, forwardRef } from '@angular/core';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AutoTabbingEnum, CharacterCaseEnum } from './models/smart-textbox.types';
 
 @Component({
@@ -17,14 +18,15 @@ import { AutoTabbingEnum, CharacterCaseEnum } from './models/smart-textbox.types
   templateUrl: './smart-textbox.component.html',
   styleUrl: './smart-textbox.component.scss'
 })
-export class SmartTextboxComponent {
-  @ViewChild('textInput') textInput: ElementRef;
+export class SmartTextboxComponent implements OnInit, OnChanges, ControlValueAccessor {
+  @ViewChild('textInput') textInput!: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
   @Input() textMode: 'SingleLine' | 'MultiLine' | 'Password' = 'SingleLine';
-  @Input() width: string;
-  @Input() height: string;
-  @Input() tabIndex: number;
-  @Input() rows: number;
-  @Input() cols: number;
+  @Input() id = '';
+  @Input() width: string = '';
+  @Input() height: string = '';
+  @Input() tabIndex: number = 0;
+  @Input() rows: number = 3;
+  @Input() cols: number = 20;
   @Input() maxLength: number = 0;
   @Input() validateWhiteSpace: boolean = true;
   @Input() characterCase: CharacterCaseEnum = CharacterCaseEnum.Mixed;
@@ -37,8 +39,8 @@ export class SmartTextboxComponent {
   @Input() disabled: boolean = false;
 
   // For ControlValueAccessor
-  private onChange: any = () => {};
-  private onTouched: any = () => {};
+  private _onChange: (value: string) => void = () => {};
+  private _onTouched: () => void = () => {};
   value: string = '';
 
   // Track keydown state
@@ -56,6 +58,18 @@ export class SmartTextboxComponent {
   };
 
   constructor() {}
+
+  ngOnInit(): void {
+    // Initialize with default values if needed
+    if (this.value === undefined) {
+      this.value = '';
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['validCharacterValues']) {
+    }
+  }
 
   ngAfterViewInit(): void {
     // Initialize placeholder mappings with culture-specific values
@@ -79,6 +93,11 @@ export class SmartTextboxComponent {
     
     // Time separator (using a fixed value since it's harder to extract)
     this.placeholderMapping[':'] = ':';
+    
+    // Set initial value to the input element if needed
+    if (this.value && this.textInput?.nativeElement) {
+      this.textInput.nativeElement.value = this.value;
+    }
   }
 
   // Implement ControlValueAccessor methods
@@ -93,18 +112,29 @@ export class SmartTextboxComponent {
         console.error('Error applying mask:', ex);
       }
     }
+    
+    // If the textInput exists, update its value directly as well
+    if (this.textInput?.nativeElement) {
+      this.textInput.nativeElement.value = this.value;
+    }
   }
 
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    this._onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
+    this._onTouched = fn;
   }
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  // Public method to update the value - can be called from template
+  setValue(value: string): void {
+    this.value = value;
+    this._onChange(value);
   }
 
   // Event handlers
@@ -114,8 +144,9 @@ export class SmartTextboxComponent {
   }
 
   onKeyPress(event: KeyboardEvent): boolean {
-    const charCode = event.key.charCodeAt(0);
+    if (!event.key) return true;
     
+    const charCode = event.key.charCodeAt(0);    
     // Check maxLength
     if (this.maxLength > 0 && charCode > 31) {
       const selectedText = this.getSelectedText();
@@ -136,6 +167,8 @@ export class SmartTextboxComponent {
   }
 
   onKeyUp(event: KeyboardEvent): void {
+    // Log the current value for debugging    
+    if (!event.key) return;
     const charCode = event.key.charCodeAt(0);
     
     // Handle character casing
@@ -176,7 +209,7 @@ export class SmartTextboxComponent {
   }
 
   onBlur(): void {
-    this.onTouched();
+    this._onTouched();
     
     // Apply mask if specified
     if (this.mask) {
@@ -188,6 +221,7 @@ export class SmartTextboxComponent {
           this.fireEvent('blur');
         }
       } catch (ex) {
+        console.error('Error applying mask:', ex);
         // Refocus on error
         if (this.textInput?.nativeElement) {
           this.textInput.nativeElement.focus();
@@ -199,8 +233,7 @@ export class SmartTextboxComponent {
   onPaste(event: ClipboardEvent): void {
     if (!event.clipboardData) return;
     
-    const pastedText = event.clipboardData.getData('text');
-    
+    const pastedText = event.clipboardData.getData('text');    
     // Check maxLength
     if (this.maxLength > 0) {
       const selectedText = this.getSelectedText();
@@ -226,36 +259,48 @@ export class SmartTextboxComponent {
     }
     
     // Check if all characters are valid
+    let allValid = true;
     for (let i = 0; i < pastedText.length; i++) {
       const charCode = pastedText.charCodeAt(i);
       if (!this.isValidChar(charCode)) {
-        event.preventDefault();
-        return;
+        allValid = false;
+        break;
       }
+    }
+    
+    if (!allValid) {
+      event.preventDefault();
     }
   }
 
-  // Helper methods
-  private setValue(value: string): void {
-    this.value = value;
-    this.onChange(value);
+  // Handle direct input event from HTML
+  onInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement | HTMLTextAreaElement;
+    this.setValue(inputElement.value);
   }
 
+  // Helper methods
   private insertText(text: string): void {
+    if (!this.textInput?.nativeElement) return;
+    
     const input = this.textInput.nativeElement;
-    const start = input.selectionStart;
-    const end = input.selectionEnd;
+    const start = input.selectionStart || 0;
+    const end = input.selectionEnd || 0;
     
     const newValue = this.value.substring(0, start) + text + this.value.substring(end);
     this.setValue(newValue);
     
     // Set the cursor position
     setTimeout(() => {
-      input.selectionStart = input.selectionEnd = start + text.length;
+      if (input.selectionStart !== undefined && input.selectionEnd !== undefined) {
+        input.selectionStart = input.selectionEnd = start + text.length;
+      }
     });
   }
 
   private getSelectedText(): string {
+    if (!this.textInput?.nativeElement) return '';
+    
     const input = this.textInput.nativeElement;
     if (input.selectionStart !== undefined && input.selectionEnd !== undefined) {
       return this.value.substring(input.selectionStart, input.selectionEnd);
@@ -264,17 +309,17 @@ export class SmartTextboxComponent {
   }
 
   private getCaretPosition(): number {
-    return this.textInput.nativeElement.selectionStart;
+    return this.textInput?.nativeElement?.selectionStart || 0;
   }
 
   private setCaretPosition(position: number): void {
-    const input = this.textInput.nativeElement;
-    if (input.setSelectionRange) {
-      setTimeout(() => {
-        input.focus();
-        input.setSelectionRange(position, position);
-      }, 0);
-    }
+    const input = this.textInput?.nativeElement;
+    if (!input || !input.setSelectionRange) return;
+    
+    setTimeout(() => {
+      input.focus();
+      input.setSelectionRange(position, position);
+    }, 0);
   }
 
   private isValidChar(charCode: number): boolean {
@@ -318,7 +363,9 @@ export class SmartTextboxComponent {
   }
 
   private fireEvent(eventName: string): void {
-    const input = this.textInput.nativeElement;
+    const input = this.textInput?.nativeElement;
+    if (!input) return;
+    
     const event = new Event(eventName, {
       bubbles: true,
       cancelable: true,
@@ -458,4 +505,3 @@ export class SmartTextboxComponent {
     return originalString.substring(0, position + 1) + insertFragment + originalString.substring(position + 1);
   }
 }
-

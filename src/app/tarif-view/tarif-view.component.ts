@@ -7,6 +7,7 @@ import { ErrorDisplayService } from '../layout/error-container/services/error-di
 import { ToolbarService } from '../layout/toolbar/services/toolbar.service';
 import { CodothequeDropdownListComponent } from "../shared/controls/codotheque-dropdown-list/codotheque-dropdown-list.component";
 import { DisplayField, LocalizedLabel } from '../shared/controls/codotheque-dropdown-list/models/codotheque-dropdown-list.types';
+import { DateComponent } from '../shared/controls/date/date.component';
 import { SmartTextboxComponent } from '../shared/controls/smart-textbox/smart-textbox.component';
 import { InsuredPerson } from './models/insured-person.model';
 import { TarifPresenter } from './tarif.presenter';
@@ -20,7 +21,8 @@ import { TarifPresenter } from './tarif.presenter';
     FormsModule, 
     ReactiveFormsModule, 
     CodothequeDropdownListComponent, 
-    AgTranslateModule
+    AgTranslateModule,
+    DateComponent
   ],
   templateUrl: './tarif-view.component.html',
   styleUrl: './tarif-view.component.scss',
@@ -258,7 +260,16 @@ export class TarifViewComponent implements OnInit {
       }
     }
   }
-
+  /**
+   * Handles date changes from the date control
+   */
+  onDateChanged(index: number, event: any): void {
+    console.log(`Date changed for insured ${index}:`, event);
+    // Update the model with the new date value
+    if (this.insuredPersons[index]) {
+      this.insuredPersons[index].dateOfBirth = event;
+    }
+  }
   /**
    * Private helper method to add the first row to the list
    */

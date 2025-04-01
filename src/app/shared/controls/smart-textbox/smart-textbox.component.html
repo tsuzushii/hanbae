@@ -1,58 +1,68 @@
+<!-- smart-textbox.component.html -->
 @if (textMode === 'MultiLine') {
-    <textarea
-      #textInput
-      [attr.rows]="rows"
-      [attr.cols]="cols"
-      [ngClass]="cssClass"
-      [style.width]="width"
-      [style.height]="height"
-      [maxlength]="maxLength"
-      [placeholder]="placeholder"
-      [disabled]="disabled"
-      [tabindex]="tabIndex"
-      [(ngModel)]="value"
-      (keydown)="onKeyDown($event)"
-      (keypress)="onKeyPress($event)"
-      (keyup)="onKeyUp($event)"
-      (blur)="onBlur()"
-      (paste)="onPaste($event)">
-    </textarea>
-  }
-  
-  @if (textMode === 'SingleLine') {
-    <input
-      #textInput
-      type="text"
-      [ngClass]="cssClass"
-      [style.width]="width"
-      [style.height]="height"
-      [maxlength]="maxLength"
-      [placeholder]="placeholder"
-      [disabled]="disabled"
-      [tabindex]="tabIndex"
-      [(ngModel)]="value"
-      (keydown)="onKeyDown($event)"
-      (keypress)="onKeyPress($event)"
-      (keyup)="onKeyUp($event)"
-      (blur)="onBlur()"
-      (paste)="onPaste($event)">
-  }
-  
-  @if (textMode === 'Password') {
-    <input
-      #textInput
-      type="password"
-      [ngClass]="cssClass"
-      [style.width]="width"
-      [style.height]="height"
-      [maxlength]="maxLength"
-      [placeholder]="placeholder"
-      [disabled]="disabled"
-      [tabindex]="tabIndex"
-      [(ngModel)]="value"
-      (keydown)="onKeyDown($event)"
-      (keypress)="onKeyPress($event)"
-      (keyup)="onKeyUp($event)"
-      (blur)="onBlur()"
-      (paste)="onPaste($event)">
-  }
+  <textarea
+    #textInput
+    [id]="id"
+    [attr.rows]="rows"
+    [attr.cols]="cols"
+    [ngClass]="cssClass"
+    [style.width]="width"
+    [style.height]="height"
+    [maxlength]="maxLength"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [tabindex]="tabIndex"
+    [ngModel]="value"
+    (ngModelChange)="setValue($event)"
+    (input)="onInput($event)"
+    (keydown)="onKeyDown($event)"
+    (keypress)="onKeyPress($event)"
+    (keyup)="onKeyUp($event)"
+    (blur)="onBlur()"
+    (paste)="onPaste($event)">
+  </textarea>
+}
+
+@if (textMode === 'SingleLine') {
+  <input
+    #textInput
+    type="text"
+    [id]="id"
+    [ngClass]="cssClass"
+    [style.width]="width"
+    [style.height]="height"
+    [maxlength]="maxLength"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [tabindex]="tabIndex"
+    [ngModel]="value"
+    (ngModelChange)="setValue($event)"
+    (input)="onInput($event)"
+    (keydown)="onKeyDown($event)"
+    (keypress)="onKeyPress($event)"
+    (keyup)="onKeyUp($event)"
+    (blur)="onBlur()"
+    (paste)="onPaste($event)">
+}
+
+@if (textMode === 'Password') {
+  <input
+    #textInput
+    type="password"
+    [id]="id"
+    [ngClass]="cssClass"
+    [style.width]="width"
+    [style.height]="height"
+    [maxlength]="maxLength"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [tabindex]="tabIndex"
+    [ngModel]="value"
+    (ngModelChange)="setValue($event)"
+    (input)="onInput($event)"
+    (keydown)="onKeyDown($event)"
+    (keypress)="onKeyPress($event)"
+    (keyup)="onKeyUp($event)"
+    (blur)="onBlur()"
+    (paste)="onPaste($event)">
+}

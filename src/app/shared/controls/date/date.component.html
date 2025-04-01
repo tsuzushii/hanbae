@@ -1,0 +1,65 @@
+<div [id]="id + '_DatePanel'">
+    <span class="DC_DateControl" [id]="id + '_datecontrol'">
+      <!-- Day input -->
+      <ag-smart-textbox
+        #dayBox
+        [(ngModel)]="dayValue"
+        [id]="id + '_datecontrol_DayBox'"
+        [cssClass]="cssClass + ' DC_DateBox DC_DayBox'"
+        [textMode]="'SingleLine'"
+        [disabled]="disabled"
+        [maxLength]="2"
+        [mask]="'00'"
+        width="22px"
+        [autoTabbing]="autoTabbingEnum.Select"
+        validCharacterValues="48-57"
+        [nextTabElementId]="id + '_datecontrol_MonthBox'"
+        (ngModelChange)="onDayChanged($event)"
+      ></ag-smart-textbox>
+      
+      <!-- Separator -->
+      <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">{{ separatorText }}</span>
+      
+      <!-- Month input -->
+      <ag-smart-textbox
+        #monthBox
+        [(ngModel)]="monthValue"
+        [id]="id + '_datecontrol_MonthBox'"
+        [cssClass]="cssClass + ' DC_DateBox DC_MonthBox'"
+        [textMode]="'SingleLine'"
+        [disabled]="disabled"
+        [maxLength]="2"
+        [mask]="'00'"
+        width="22px"
+        [autoTabbing]="autoTabbingEnum.Select"
+        validCharacterValues="48-57"
+        [nextTabElementId]="id + '_datecontrol_YearBox'"
+        (ngModelChange)="onMonthChanged($event)"
+      ></ag-smart-textbox>
+      
+      <!-- Separator -->
+      <span style="display:inline-block;width:8px;text-align:center;vertical-align:middle;">{{ separatorText }}</span>
+      
+      <!-- Year input -->
+      <ag-smart-textbox
+        #yearBox
+        [(ngModel)]="yearValue"
+        [id]="id + '_datecontrol_YearBox'"
+        [cssClass]="cssClass + ' DC_DateBox DC_YearBox'"
+        [textMode]="'SingleLine'"
+        [disabled]="disabled"
+        [maxLength]="4"
+        [mask]="'0000'"
+        width="44px"
+        [autoTabbing]="autoTabbing"
+        validCharacterValues="48-57"
+        (ngModelChange)="onYearChanged($event)"
+      ></ag-smart-textbox>
+      
+      <!-- Calendar button (if enabled) TODO(Anas): still needs to be implemented, CO depends on a jquery lib for the calendar rendering-->
+      <ng-container *ngIf="allowCalendar">
+        <input type="hidden" [id]="id + '_datecontrol_InputDate'" style="width:0;visibility:hidden;border-left-width:0px;border-right-width:0px;vertical-align:middle;">
+        <img [id]="id + '_datecontrol_CalendarImg'" src="assets/WebResources/HRCOCalendar.gif" style="padding-left:5px;vertical-align:middle;">
+      </ng-container>
+    </span>
+  </div>

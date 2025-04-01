@@ -1,3 +1,4 @@
+
 import { AgTranslateService } from "@ag/vc.ag-core/translate";
 import { Injectable } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -6,6 +7,7 @@ import { Observable, map } from "rxjs";
 import { Severity } from "../layout/error-container/models/error.types";
 import { ErrorDisplayService } from "../layout/error-container/services/error-display.service";
 import { ToolbarService } from '../layout/toolbar/services/toolbar.service';
+import { DateService } from "../shared/controls/date/services/date.service";
 import { InsuredPerson } from "./models/insured-person.model";
 
 /**
@@ -48,7 +50,8 @@ export class TarifPresenter {
     private readonly errorDisplayService: ErrorDisplayService,
     private readonly fb: FormBuilder,
     private readonly router: Router,
-    private readonly translateService: AgTranslateService
+    private readonly translateService: AgTranslateService,
+    private readonly dateService: DateService
   ) {
     this.tarifForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -143,25 +146,28 @@ export class TarifPresenter {
   }
   
   /**
-   * Validates a date string
+   * Validates a date string (DD/MM/YYYY format)
+   * Direct implementation from original IsValidDate method
    */
   isValidDate(dateString: string): boolean {
-    if (!dateString || dateString === '//') return false;
+    if (!dateString) return false;
     
-    const dateParts = dateString.split('/');
-    if (dateParts.length !== 3) return false;
-    
-    const day = parseInt(dateParts[0], 10);
-    const month = parseInt(dateParts[1], 10) - 1; // JavaScript months are 0-based
-    const year = parseInt(dateParts[2], 10);
-    
-    const date = new Date(year, month, day);
-    
-    return (
-      date.getDate() === day &&
-      date.getMonth() === month &&
-      date.getFullYear() === year
-    );
+    try {
+      const dateParts = dateString.split('/');
+      if (dateParts.length !== 3) return false;
+      
+      const day = parseInt(dateParts[0], 10);
+      const month = parseInt(dateParts[1], 10);
+      const year = parseInt(dateParts[2], 10);
+      
+      // Create new date and check if it's valid
+      // months are zero-based when using Date constructor
+      const date = new Date(year, month - 1, day);
+      
+      return date instanceof Date && !isNaN(date.getTime());
+    } catch (error) {
+      return false;
+    }
   }
   
   /**
@@ -261,7 +267,7 @@ export class TarifPresenter {
       // These mappings are critical for proper focus handling
       const firstNameId = `TextBoxFirstName${countAsu}`;
       const genderId = `ddlSex${countAsu}`;
-      const dobId = `UCDateOfBirth_datecontrol_DayBox${countAsu}`; // Day field for date of birth
+      const dobId = `UCDateOfBirth${countAsu}`;
       const postalCodeId = `TextBoxPostalCode${countAsu}`;
       const relationId = `ddlRelation${countAsu}`;
       const domiciliationId = `ddlDomiciliation${countAsu}`;
@@ -296,8 +302,74 @@ export class TarifPresenter {
         });
       }
       
-      // Check DOB (would be implemented for a real date control)
-      // Currently skipped as there's no proper date implementation
+      // Format date of birth to string for validation
+      let dateOfBirthString = "//";
+      
+      if (insured.dateOfBirth) {
+        if (insured.dateOfBirth instanceof Date) {
+          const day = insured.dateOfBirth.getDate().toString().padStart(2, '0');
+          const month = (insured.dateOfBirth.getMonth() + 1).toString().padStart(2, '0');
+          const year = insured.dateOfBirth.getFullYear().toString();
+          dateOfBirthString = `${day}/${month}/${year}`;
+        } else {
+          dateOfBirthString = insured.dateOfBirth;
+        }
+      }
+      
+      // Check DOB (date of birth) - EXACTLY as in the original code
+      if (dateOfBirthString === "//") {
+        // OLEH1004: Fill in date of birth is mandatory
+        errorList.push({
+          message: assure + this.getTranslationSync(this.TRANSLATION_KEYS.DOB_REQUIRED),
+          severity: Severity.Error,
+          detail: this.getTranslationSync(this.TRANSLATION_KEYS.DOB_REQUIRED),
+          code: this.TRANSLATION_KEYS.DOB_REQUIRED,
+          controlId: `${dobId}_datecontrol_DayBox`
+        });
+      } 
+      // OLEH1005: Validate if date of birth is a valid date
+      else if (dateOfBirthString !== "//" && !this.isValidDate(dateOfBirthString)) {
+        errorList.push({
+          message: assure + this.getTranslationSync(this.TRANSLATION_KEYS.DOB_INVALID),
+          severity: Severity.Error,
+          detail: this.getTranslationSync(this.TRANSLATION_KEYS.DOB_INVALID),
+          code: this.TRANSLATION_KEYS.DOB_INVALID,
+          controlId: `${dobId}_datecontrol_DayBox`
+        });
+      }
+      // OLEH1006: Validate if date of birth is a date in the future
+      else if (dateOfBirthString !== "//" && this.isValidDate(dateOfBirthString) && 
+              new Date(this.parseDateString(dateOfBirthString)) > new Date()) {
+        errorList.push({
+          message: assure + this.getTranslationSync(this.TRANSLATION_KEYS.DOB_FUTURE),
+          severity: Severity.Error,
+          detail: this.getTranslationSync(this.TRANSLATION_KEYS.DOB_FUTURE),
+          code: this.TRANSLATION_KEYS.DOB_FUTURE,
+          controlId: `${dobId}_datecontrol_DayBox`
+        });
+      }
+      // OLEH1007: Validate if date of birth is after effective date of the contract
+      else if (dateOfBirthString !== "//" && this.isValidDate(dateOfBirthString) &&
+               new Date(this.parseDateString(dateOfBirthString)) >= this.contractEffectiveDate) {
+        errorList.push({
+          message: assure + this.getTranslationSync(this.TRANSLATION_KEYS.DOB_AFTER_CONTRACT),
+          severity: Severity.Error,
+          detail: this.getTranslationSync(this.TRANSLATION_KEYS.DOB_AFTER_CONTRACT),
+          code: this.TRANSLATION_KEYS.DOB_AFTER_CONTRACT,
+          controlId: `${dobId}_datecontrol_DayBox`
+        });
+      }
+      // OLEH1008: Validate if assure has more than 69 years (not 99 as I incorrectly implemented)
+      else if (dateOfBirthString !== "//" && this.isValidDate(dateOfBirthString) && 
+              (new Date().getFullYear() - new Date(this.parseDateString(dateOfBirthString)).getFullYear() > 69)) {
+        errorList.push({
+          message: assure + this.getTranslationSync(this.TRANSLATION_KEYS.DOB_AGE_LIMIT),
+          severity: Severity.Error,
+          detail: this.getTranslationSync(this.TRANSLATION_KEYS.DOB_AGE_LIMIT),
+          code: this.TRANSLATION_KEYS.DOB_AGE_LIMIT,
+          controlId: `${dobId}_datecontrol_DayBox`
+        });
+      }
       
       // Check postal code
       if (!insured.postalCode || insured.postalCode.length !== 4) {
@@ -370,6 +442,18 @@ export class TarifPresenter {
     }
     
     return isValid;
+  }
+  
+  /**
+   * Helper to parse a date string in DD/MM/YYYY format
+   */
+  private parseDateString(dateString: string): Date {
+    const parts = dateString.split('/');
+    return new Date(
+      parseInt(parts[2], 10),     // year
+      parseInt(parts[1], 10) - 1, // month (0-indexed)
+      parseInt(parts[0], 10)      // day
+    );
   }
   
   /**

@@ -6,7 +6,7 @@ export enum CharacterCaseEnum {
   
   export enum AutoTabbingEnum {
     None = 1,
-    Focus = 2,
+    Focus = 2, //never used or implemented in CO 
     Select = 3
   }
   
